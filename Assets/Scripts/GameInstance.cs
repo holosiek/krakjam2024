@@ -1,18 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameInstance : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private static GameInstance _gameInstance;
+
+    public static GameInstance Instance
     {
-        
+        get
+        {
+            if (_gameInstance == null)
+            {
+                Initialize();
+            }
+
+            return _gameInstance;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private static void Initialize()
     {
-        
+        var objs = FindObjectsOfType<GameInstance>();
+
+        if (objs.Length == 0)
+        {
+            var obj = new GameObject("Game Instance", typeof(GameInstance));
+            DontDestroyOnLoad(obj);
+            _gameInstance = obj.GetComponent<GameInstance>();
+        }
+        else if (objs.Length == 1)
+        {
+            _gameInstance = objs[0];
+            DontDestroyOnLoad(_gameInstance);
+        }
+        else
+        {
+            Debug.LogError("More than 1 gameinstance found!!!");
+        }
+    }
+    
+    public void Awake()
+    {
+        Initialize();
     }
 }
