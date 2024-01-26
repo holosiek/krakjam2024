@@ -1,10 +1,18 @@
 using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CinemachineBrain))]
+[RequireComponent(typeof(Camera))]
 public class CameraSystem : MonoBehaviour
 {
-    [SerializeField]
     private CinemachineBrain _cinemachineBrain;
+    private Camera _mainCamera;
+
+    public CinemachineBrain CinemachineBrain => _cinemachineBrain != null
+        ? _cinemachineBrain
+        : _cinemachineBrain = GetComponent<CinemachineBrain>();
+
+    public Camera MainCamera => _mainCamera != null
+        ? _mainCamera
+        : _mainCamera = GetComponent<Camera>();
 }
