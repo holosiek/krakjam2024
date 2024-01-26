@@ -681,7 +681,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 228636750348226379, guid: aa990639f45b3d14daa4d6ed12f7ee4f, type: 3}
       propertyPath: m_Name
-      value: PlayerPawn
+      value: P_PlayerPawn
       objectReference: {fileID: 0}
     - target: {fileID: 3128384136421953108, guid: aa990639f45b3d14daa4d6ed12f7ee4f, type: 3}
       propertyPath: m_LocalPosition.x
