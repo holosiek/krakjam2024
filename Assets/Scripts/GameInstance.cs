@@ -67,9 +67,27 @@ public class GameInstance : MonoBehaviour
         }
     }
 
+    public T Get<T>() where T : GameSystem
+    {
+        foreach (var system in Instance.Systems)
+        {
+            if (system is T gameSystem)
+            {
+                return gameSystem;
+            }
+        }
+
+        return null;
+    }
+
     public void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void GameRestart()
+    {
+        
     }
     
     public void Awake()
