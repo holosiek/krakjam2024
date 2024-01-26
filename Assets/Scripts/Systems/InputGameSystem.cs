@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 
-public class InputSystem : MonoBehaviour
+public class InputSystem : GameSystem
 {
     [SerializeField]
     private PlayerInput _playerInput;
@@ -19,16 +19,5 @@ public class InputSystem : MonoBehaviour
         _inputActionAsset = new PlayerInputActions();
         //_playerInput.actions = _inputActionAsset.asset;
         //_inputModule.actionsAsset = _inputActionAsset.asset;
-    }
-
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
