@@ -4,6 +4,9 @@ using static PlayerInputActions;
 
 public class FirstPersonController : MonoBehaviour, IGameplayActions
 {
+    [SerializeField]
+    private CharacterController _characterController;
+
     private PlayerInputActions _inputActions;
     private InputSystem _inputSystem;
 
@@ -13,17 +16,6 @@ public class FirstPersonController : MonoBehaviour, IGameplayActions
         _inputActions = _inputSystem.PlayerInputAction;
         _inputActions.Gameplay.SetCallbacks(this);
         _inputActions.Gameplay.Enable();
-    }
-
-    private void OnFireInput(InputAction.CallbackContext context)
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void OnMove(InputAction.CallbackContext context)
