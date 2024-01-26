@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameInstance : MonoBehaviour
 {
@@ -36,6 +37,11 @@ public class GameInstance : MonoBehaviour
         {
             Debug.LogError("More than 1 gameinstance found!!!");
         }
+    }
+
+    public void ChangeScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
     
     public void Awake()
