@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,18 +20,32 @@ public class ModifierNotification : MonoBehaviour
 
 	[SerializeField]
 	private CanvasGroup _notificationContainer;
+
+	private Queue<Modifier> _modifierQueue = new Queue<Modifier>();
 	
 	private Coroutine _notificationDisplay;
 	
 	public void ShowNotificaction(Modifier modifier)
 	{
+		_modifierQueue.Enqueue(modifier);
+		
+		if (_modifierQueue.Count == 1)
+		{
+			PlayNextNotification();
+		}
+	}
+
+	public void PlayNextNotification()
+	{
+		var modifier = _modifierQueue.Peek();
+		
 		if (_notificationDisplay != null)
 		{
 			StopCoroutine(_notificationDisplay);
 		}
-		_notificationDisplay = StartCoroutine(DisplayNotification());
 		_modifierImage.sprite = modifier.Image;
 		_modifierText.SetText(modifier.Text);
+		_notificationDisplay = StartCoroutine(DisplayNotification());
 	}
 
 	private IEnumerator DisplayNotification()
@@ -57,6 +72,15 @@ public class ModifierNotification : MonoBehaviour
 		}
 		_notificationContainer.alpha = 0;
 
-		_notificationDisplay = null;
+		_modifierQueue.Dequeue();
+		
+		if (_modifierQueue.Count != 0)
+		{
+			PlayNextNotification();
+		}
+		else
+		{
+			_notificationDisplay = null;
+		}
 	}
 }

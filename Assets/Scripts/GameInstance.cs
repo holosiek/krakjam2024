@@ -8,6 +8,7 @@ public class GameInstance : MonoBehaviour
     public List<GameSystem> Systems;
     
     private static GameInstance _gameInstance;
+    private static UiSystem _uiSystem;
 
     public static GameInstance Instance
     {
@@ -21,6 +22,8 @@ public class GameInstance : MonoBehaviour
             return _gameInstance;
         }
     }
+
+    public static UiSystem UiSystem => _uiSystem;
 
     private static void Initialize()
     {
@@ -50,6 +53,11 @@ public class GameInstance : MonoBehaviour
         
         foreach (var sys in systems)
         {
+            if (sys is UiSystem uiSystem)
+            {
+                _uiSystem = uiSystem;
+            }
+            
             bool exists = false;
             foreach (var systemInside in Instance.Systems)
             {

@@ -7,4 +7,7 @@ public class UiSystem : GameSystem
 
 	[SerializeField]
 	public ModifierNotification ModifierNotification;
+
+	[SerializeField]
+	public ModifierList ModifierList;
 }
