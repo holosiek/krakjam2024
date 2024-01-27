@@ -22,25 +22,30 @@ public class PlayerShootingWeapon : ShootingWeapon
     private int _idleIndex = -1;
     private int _shootingIndex = -1;
     private Image _weaponImage;
+
     private Transform CameraTransform => _cameraSystem.MainCamera.transform;
+
+    private void OnEnable()
+    {
+        GameInstance.UiSystem.WeaponHolder.DeactivateAllImages();
+        GetImage();
+        UpdateSprite(GetNextIdleSprite());
+        _weaponImage.gameObject.SetActive(true);
+    }
 
     protected override void Start()
     {
         base.Start();
         _cameraSystem = FindAnyObjectByType<CameraSystem>();
+    }
 
+    private void GetImage()
+    {
         _weaponImage = _weaponType == WeaponType.CatGun
             ? GameInstance.UiSystem.WeaponHolder.CatGunImage
             : _weaponType == WeaponType.Paws
             ? GameInstance.UiSystem.WeaponHolder.PawsImage
             : GameInstance.UiSystem.WeaponHolder.CatGunImage;
-
-        if (gameObject.activeInHierarchy)
-        {
-            GameInstance.UiSystem.WeaponHolder.DeactivateAllImages();
-            UpdateSprite(GetNextIdleSprite());
-            _weaponImage.gameObject.SetActive(true);
-        }
     }
 
     private Sprite GetNextIdleSprite()

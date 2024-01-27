@@ -1,10 +1,57 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PawnWeaponController : MonoBehaviour
 {
     [SerializeField]
-    private ShootingWeapon _shootingWeapon;
+    private ModifierTag _meowCatGunTag;
+
+    [SerializeField]
+    private ShootingWeapon _meowCatGun;
+
+    [SerializeField]
+    private ModifierTag _pawsWeaponTag;
+
+    [SerializeField]
+    private ShootingWeapon _pawsWeapon;
+
+    private ModifierSystem _modifierSystem;
+    private ShootingWeapon _activeWeapon;
+
+    private ShootingWeapon ActiveWeapon
+    {
+        get => _activeWeapon;
+        set
+        {
+            if (_activeWeapon != value)
+            {
+                _activeWeapon?.gameObject.SetActive(false);
+                _activeWeapon = value;
+                _activeWeapon.gameObject.SetActive(true);
+            }
+        }
+    }
+
+    private void Start()
+    {
+        ActiveWeapon = _meowCatGun;
+        _modifierSystem = GameInstance.Instance.Get<ModifierSystem>();
+        _modifierSystem.OnModifierListUpdate += OnModifierListUpdate;
+    }
+
+    private void OnModifierListUpdate(Modifier modifier)
+    {
+        if (modifier.ModifierTag == _pawsWeaponTag)
+        {
+            ActiveWeapon = _pawsWeapon;
+        }
+
+        if (modifier.ModifierTag == _meowCatGunTag)
+        {
+            ActiveWeapon = _meowCatGun;
+        }
+    }
 
     public void OnFireInput(InputAction.CallbackContext context)
     {
@@ -15,7 +62,6 @@ public class PawnWeaponController : MonoBehaviour
             _ => TriggerPhase.None
         };
 
-        _shootingWeapon.HandleInput(triggerPhase);
+        _activeWeapon.HandleInput(triggerPhase);
     }
-
 }
