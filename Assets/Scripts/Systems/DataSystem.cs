@@ -6,6 +6,8 @@ public class DataSystem : GameSystem
 
 	public void AddNewBestTime(float time)
 	{
+		bool wasAdded = false;
+		
 		for (int index = 0; index < BestTimes.Count; index++)
 		{
 			float bestTime = BestTimes[index];
@@ -13,6 +15,7 @@ public class DataSystem : GameSystem
 			if (time < bestTime)
 			{
 				BestTimes.Insert(index, time);
+				wasAdded = true;
 				break;
 			}
 		}
@@ -21,5 +24,21 @@ public class DataSystem : GameSystem
 		{
 			BestTimes.RemoveAt(10);
 		}
+		else
+		{
+			if (!wasAdded)
+			{
+				BestTimes.Add(time);
+			}
+		}
+	}
+	
+	public float GetBestTime()
+	{
+		if (BestTimes.Count == 0)
+		{
+			return 0;
+		}
+		return BestTimes[0];
 	}
 }
