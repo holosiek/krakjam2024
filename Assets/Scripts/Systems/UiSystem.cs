@@ -3,5 +3,8 @@ using UnityEngine;
 public class UiSystem : GameSystem
 {
 	[SerializeField]
-	public HealthBar _healthBar;
+	public HealthBar HealthBar;
+
+	[SerializeField]
+	public ModifierNotification ModifierNotification;
 }

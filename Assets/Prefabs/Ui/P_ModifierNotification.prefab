@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4064674025169034610}
   - component: {fileID: 6560898116902138927}
   - component: {fileID: 751289120402823944}
+  - component: {fileID: 1041544438796488528}
+  - component: {fileID: 3981289402576191666}
   m_Layer: 5
   m_Name: P_ModifierNotification
   m_TagString: Untagged
@@ -77,6 +79,35 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1041544438796488528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852411418653817247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8ee91865e1240b5bb8df0ce4c99bf73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _displayInOutAnimationTime: 0.25
+  _displayTime: 2
+  _modifierImage: {fileID: 1946260717893784561}
+  _modifierText: {fileID: 210193065496314565}
+  _notificationContainer: {fileID: 3981289402576191666}
+--- !u!225 &3981289402576191666
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852411418653817247}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7326786620683370979
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +173,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Models are rotated by 180 stopnie
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 897f65f1a6c92b249991306d290c8746, type: 2}
   m_sharedMaterial: {fileID: -9101251512995750296, guid: 897f65f1a6c92b249991306d290c8746, type: 2}
@@ -276,7 +307,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 344424e74915ab449a78cc944dbe54a2, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
