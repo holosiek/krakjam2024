@@ -54,9 +54,9 @@ MonoBehaviour:
   _cameraHolder: {fileID: 8487116347680923051}
   _characterController: {fileID: 7711471179825533556}
   _maxLookAngle: 60
-  _jumpForce: 10
+  _jumpForce: 5
   _fallAcceleration: 0.1
-  _movementSpeed: 5
+  _movementSpeed: 10
   _sensitivity: 20
 --- !u!143 &7711471179825533556
 CharacterController:
@@ -164,7 +164,7 @@ Transform:
   m_GameObject: {fileID: 3309816632302848237}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000000059604645, y: 0.5299999, z: 0.6850002}
+  m_LocalPosition: {x: -0.000000059604645, y: 0.52999985, z: 0.6850002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
