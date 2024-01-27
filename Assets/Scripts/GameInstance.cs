@@ -111,6 +111,7 @@ public class GameInstance : MonoBehaviour
         Get<TimerSystem>().ResetTimer();
         Get<ModifierSystem>().RestartModifiers();
         UiSystem.ModifierList.ResetModifiers();
+        UiSystem.HealthBar.SetByPercent(1);
     }
     
     public void Awake()
