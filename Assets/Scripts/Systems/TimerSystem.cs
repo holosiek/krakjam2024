@@ -8,11 +8,7 @@ public class TimerSystem : GameSystem
 	private TMP_Text _label;
 
 	private float _time;
-
-	public void ResetTimer()
-	{
-		_time = 0;
-	}
+	private bool _shouldTimerWork = true;
 
 	private string DoublePad(float num)
 	{
@@ -24,14 +20,38 @@ public class TimerSystem : GameSystem
 		return ((int)num).ToString();
 	}
 
-	public string GetReadableTime()
+	public string GetReadableTime(float time)
 	{
-		return DoublePad(_time/60) + ":" + DoublePad(_time%60) + "." + DoublePad((_time%1)*100);
+		return DoublePad(time/60) + ":" + DoublePad(time%60) + "." + DoublePad((time%1)*100);
+	}
+	
+	public float GetTime()
+	{
+		return _time;
+	}
+
+	public void StopTimer()
+	{
+		_shouldTimerWork = false;
+	}
+
+	public void ResumeTimer()
+	{
+		_shouldTimerWork = true;
+	}
+
+	public void ResetTimer()
+	{
+		_time = 0;
+		ResumeTimer();
 	}
 	
 	public void Update()
 	{
-		_time += Time.deltaTime;
-		_label.SetText(GetReadableTime());
+		if (_shouldTimerWork)
+		{
+			_time += Time.deltaTime;
+			_label.SetText(GetReadableTime(_time));
+		}
 	}
 }
