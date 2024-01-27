@@ -19,10 +19,15 @@ public class AiAgent : MonoBehaviour
     [SerializeField]
     private float _patrolRange;
 
+    private readonly int _shootingHash = Animator.StringToHash("IsShooting");
+    private readonly int _happyHash = Animator.StringToHash("IsHappy");
+
     private NavMeshAgent _navMeshAgent;
     private Vector3 _destination;
     private bool _hasSetDestination;
     private bool _isHoldingWeaponTrigger;
+    private bool _isHappy;
+    private Animator _animator;
 
     private NavMeshAgent NavMeshAgent => _navMeshAgent != null
         ? _navMeshAgent
@@ -31,19 +36,33 @@ public class AiAgent : MonoBehaviour
     private bool IsPlayerInAttackRange => _pawnAttackRangeDetector.IsPawnDetected;
     private bool IsPlayerVisible => _pawnVisibilityDetector.IsPawnDetected;
 
+    private void Awake()
+    {
+        _animator = GetComponentInChildren<Animator>();
+    }
+
+    public void MakeMeHappy()
+    {
+        _isHappy = true;
+        _animator.SetBool(_happyHash, true);
+        NavMeshAgent.SetDestination(transform.position);
+        TryDeactivateShooting();
+    }
+
     private void Update()
     {
+        if (_isHappy)
+        {
+            return;
+        }
+
         if (IsPlayerInAttackRange)
         {
             AttackUpdate();
             return;
         }
 
-        if (_isHoldingWeaponTrigger)
-        {
-            _weapon.HandleInput(TriggerPhase.Released);
-            _isHoldingWeaponTrigger = false;
-        }
+        TryDeactivateShooting();
 
         if (IsPlayerVisible)
         {
@@ -68,6 +87,17 @@ public class AiAgent : MonoBehaviour
         {
             _weapon.HandleInput(TriggerPhase.Started);
             _isHoldingWeaponTrigger = true;
+            _animator.SetBool(_shootingHash, true);
+        }
+    }
+
+    private void TryDeactivateShooting()
+    {
+        if (_isHoldingWeaponTrigger)
+        {
+            _weapon.HandleInput(TriggerPhase.Released);
+            _isHoldingWeaponTrigger = false;
+            _animator.SetBool(_shootingHash, false);
         }
     }
 
