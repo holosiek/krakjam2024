@@ -9,12 +9,12 @@ public class GameOverScreen : MonoBehaviour, PlayerInputActions.IAdditionalActio
     
     [SerializeField]
     private TMP_Text _bestTimeLabel;
-    
-    [SerializeField]
-    private TMP_Text _modifiersCollectedLabel;
 
     [SerializeField]
     private CanvasGroup _gameOverScreen;
+
+    [SerializeField]
+    private bool _allowToContinue;
 
     private InputSystem _inputSystem;
 
@@ -29,8 +29,9 @@ public class GameOverScreen : MonoBehaviour, PlayerInputActions.IAdditionalActio
         float time = timerSystem.GetTime();
         _timerLabel.SetText(timerSystem.GetReadableTime(time));
         _bestTimeLabel.SetText(timerSystem.GetReadableTime(GameInstance.Instance.Get<DataSystem>().GetBestTime()));
-        _modifiersCollectedLabel.SetText(GameInstance.Instance.Get<ModifierSystem>().ModifiersList.Count.ToString());
+        //_modifiersCollectedLabel.SetText(GameInstance.Instance.Get<ModifierSystem>().ModifiersList.Count.ToString());
         timerSystem.StopTimer();
+        Time.timeScale = 0f;
         _gameOverScreen.alpha = 1;
 
         _inputSystem.PlayerInputAction.Additional.Enable();
@@ -41,10 +42,25 @@ public class GameOverScreen : MonoBehaviour, PlayerInputActions.IAdditionalActio
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            _inputSystem.PlayerInputAction.Additional.Disable();
-            _inputSystem.PlayerInputAction.Additional.RemoveCallbacks(this);
-            _gameOverScreen.alpha = 0;
+            Cleanup();
             GameInstance.Instance.RestartGame();
         }
+    }
+
+    public void OnContinue(InputAction.CallbackContext context)
+    {
+        if (_allowToContinue && context.phase == InputActionPhase.Performed)
+        {
+            Cleanup();
+            GameInstance.Instance.ChangeScene("Level1");
+        }
+    }
+
+    private void Cleanup()
+    {
+        _inputSystem.PlayerInputAction.Additional.Disable();
+        _inputSystem.PlayerInputAction.Additional.RemoveCallbacks(this);
+        Time.timeScale = 1f;
+        _gameOverScreen.alpha = 0;
     }
 }

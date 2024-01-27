@@ -705,6 +705,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Continue"",
+                    ""type"": ""Button"",
+                    ""id"": ""9455a3bb-4813-4b58-bb9e-ca967634ca56"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -716,6 +725,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""66020c12-18c3-4342-86de-b936428897eb"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7105f2c5-e3d6-49a8-94d3-4501b633e3ca"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Continue"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -762,6 +793,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         // Additional
         m_Additional = asset.FindActionMap("Additional", throwIfNotFound: true);
         m_Additional_Reset = m_Additional.FindAction("Reset", throwIfNotFound: true);
+        m_Additional_Continue = m_Additional.FindAction("Continue", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1012,11 +1044,13 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Additional;
     private List<IAdditionalActions> m_AdditionalActionsCallbackInterfaces = new List<IAdditionalActions>();
     private readonly InputAction m_Additional_Reset;
+    private readonly InputAction m_Additional_Continue;
     public struct AdditionalActions
     {
         private @PlayerInputActions m_Wrapper;
         public AdditionalActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Reset => m_Wrapper.m_Additional_Reset;
+        public InputAction @Continue => m_Wrapper.m_Additional_Continue;
         public InputActionMap Get() { return m_Wrapper.m_Additional; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1029,6 +1063,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Reset.started += instance.OnReset;
             @Reset.performed += instance.OnReset;
             @Reset.canceled += instance.OnReset;
+            @Continue.started += instance.OnContinue;
+            @Continue.performed += instance.OnContinue;
+            @Continue.canceled += instance.OnContinue;
         }
 
         private void UnregisterCallbacks(IAdditionalActions instance)
@@ -1036,6 +1073,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Reset.started -= instance.OnReset;
             @Reset.performed -= instance.OnReset;
             @Reset.canceled -= instance.OnReset;
+            @Continue.started -= instance.OnContinue;
+            @Continue.performed -= instance.OnContinue;
+            @Continue.canceled -= instance.OnContinue;
         }
 
         public void RemoveCallbacks(IAdditionalActions instance)
@@ -1085,5 +1125,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     public interface IAdditionalActions
     {
         void OnReset(InputAction.CallbackContext context);
+        void OnContinue(InputAction.CallbackContext context);
     }
 }

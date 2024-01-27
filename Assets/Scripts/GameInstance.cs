@@ -83,6 +83,11 @@ public class GameInstance : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public void ShowGameWonScreen()
+    {
+        UiSystem.GameWinScreen.ShowGameOverScreen();
+    }
+
     public void ShowGameOverScreen()
     {
         Get<DataSystem>().AddNewBestTime(Get<TimerSystem>().GetTime());
