@@ -31,7 +31,7 @@ public class TimerSystem : GameSystem
 	
 	public void Update()
 	{
-		_time += Time.deltaTime*10;
+		_time += Time.deltaTime;
 		_label.SetText(GetReadableTime());
 	}
 }

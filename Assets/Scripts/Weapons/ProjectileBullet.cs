@@ -27,6 +27,6 @@ public class ProjectileBullet : MonoBehaviour
             yield return null;
         }
 
-        Destroy(this);
+        Destroy(gameObject);
     }
 }
