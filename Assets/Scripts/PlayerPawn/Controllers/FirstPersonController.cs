@@ -80,6 +80,7 @@ public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplay
 
         var desiredMoveInput = cameraForward * _currentMoveInput.y + cameraRight * _currentMoveInput.x;
         _characterController.Move(desiredMoveInput * _deltaTime * _movementSpeed);
+        _characterController.Move(Physics.gravity * _deltaTime);
     }
 
     private void RotateCharacter()
