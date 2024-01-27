@@ -9,6 +9,7 @@ public class FullScreenEffectSystem : GameSystem
 	private ModifierTag _exampleFullScreenModifierTag;
 	
 	private ModifierSystem _modifierSystem;
+	private bool _isGreenscreened;
 
 	private static readonly int _testColor = Shader.PropertyToID("_TestColor");
 
@@ -28,6 +29,7 @@ public class FullScreenEffectSystem : GameSystem
 	private void ClearModifiers()
 	{
 		_fullScreenMaterial.SetColor(_testColor, Color.white);
+		_isGreenscreened = false;
 	}
 
 	private void OnModifierListUpdate(Modifier modifier)
@@ -37,9 +39,15 @@ public class FullScreenEffectSystem : GameSystem
 
 	private void CheckModifiers()
 	{
-		if (_modifierSystem.HasModifierTag(_exampleFullScreenModifierTag))
+		if (!_isGreenscreened && _modifierSystem.HasModifierTag(_exampleFullScreenModifierTag))
 		{
 			_fullScreenMaterial.SetColor(_testColor, Color.green);
+			_isGreenscreened = true;
+		}
+		if (_isGreenscreened && !_modifierSystem.HasModifierTag(_exampleFullScreenModifierTag))
+		{
+			_fullScreenMaterial.SetColor(_testColor, Color.white);
+			_isGreenscreened = false;
 		}
 	}
 }

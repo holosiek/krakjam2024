@@ -36,8 +36,8 @@ public class GameOverScreen : MonoBehaviour, PlayerInputActions.IAdditionalActio
         {
             _inputSystem.PlayerInputAction.Additional.Disable();
             _inputSystem.PlayerInputAction.Additional.RemoveCallbacks(this);
-            GameInstance.Instance.ChangeScene(SceneManager.GetActiveScene().name);
             _gameOverScreen.alpha = 0;
+            GameInstance.Instance.RestartGame();
         }
     }
 }

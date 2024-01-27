@@ -103,6 +103,14 @@ public class GameInstance : MonoBehaviour
     {
         UiSystem.GameOverScreen.ShowGameOverScreen();
     }
+
+    public void RestartGame()
+    {
+        ChangeScene(SceneManager.GetActiveScene().name);
+        Get<TimerSystem>().ResetTimer();
+        Get<ModifierSystem>().RestartModifiers();
+        UiSystem.ModifierList.ResetModifiers();
+    }
     
     public void Awake()
     {

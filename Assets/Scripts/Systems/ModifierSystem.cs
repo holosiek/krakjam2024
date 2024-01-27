@@ -52,6 +52,17 @@ public class ModifierSystem : GameSystem
 		GameInstance.UiSystem.ModifierNotification.ShowNotificaction(modifier);
 	}
 
+	public void RestartModifiers()
+	{
+		foreach (var modifier in _modifiersList)
+		{
+			_modifiersAvailable.Add(modifier);
+			OnModifierListUpdate?.Invoke(modifier);
+		}
+		
+		_modifiersList.Clear();
+	}
+
 	public void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Q))

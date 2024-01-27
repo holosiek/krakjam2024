@@ -940,6 +940,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_AmmoBar
       objectReference: {fileID: 0}
+    - target: {fileID: 7231172427464792986, guid: 04f657075700dae44adb5d8231bac3d7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

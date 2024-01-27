@@ -37,6 +37,7 @@ public class MaterialChangerSystem : GameSystem
 		{
 			mat.SetInt(_fasolkiOn, 0);
 		}
+		_isFasolki = false;
 	}
 	
 	private void CheckModifiers()
@@ -49,6 +50,16 @@ public class MaterialChangerSystem : GameSystem
 			}
 
 			_isFasolki = true;
+		}
+
+		if (_isFasolki && !_modifierSystem.HasModifierTag(_fasolkaModifierTag))
+		{
+			foreach (var mat in _materials)
+			{
+				mat.SetInt(_fasolkiOn, 0);
+			}
+
+			_isFasolki = false;
 		}
 	}
 }
