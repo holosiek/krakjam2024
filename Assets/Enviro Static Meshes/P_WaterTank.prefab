@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8685712671927001287}
   - component: {fileID: 8471990508816927610}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8950959496568542709}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: P_WaterTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,6 +137,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 96a0558b577c02a41ad0de0045f3b5f3, type: 3}
       propertyPath: m_Name
       value: SM_OfficeWatertank
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 96a0558b577c02a41ad0de0045f3b5f3, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
