@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -28,10 +29,15 @@ public class AiAgent : MonoBehaviour
     private bool _isHoldingWeaponTrigger;
     private bool _isHappy;
     private Animator _animator;
+    private MultipliersSystem _multipliersSystem;
 
     private NavMeshAgent NavMeshAgent => _navMeshAgent != null
         ? _navMeshAgent
         : _navMeshAgent = GetComponent<NavMeshAgent>();
+
+    private MultipliersSystem MultipliersSystem => _multipliersSystem != null
+        ? _multipliersSystem
+        : _multipliersSystem = GameInstance.Instance.Get<MultipliersSystem>(); 
 
     private bool IsPlayerInAttackRange => _pawnAttackRangeDetector.IsPawnDetected;
     private bool IsPlayerVisible => _pawnVisibilityDetector.IsPawnDetected;
@@ -39,6 +45,17 @@ public class AiAgent : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponentInChildren<Animator>();
+    }
+
+    private void Start()
+    {
+        MultipliersSystem.OnMovementSpeedMultiplierChange += OnMovementSpeedChange;
+    }
+
+    private void OnMovementSpeedChange(float multiplierValue)
+    {
+        NavMeshAgent.speed *= multiplierValue;
+        NavMeshAgent.acceleration *= multiplierValue;
     }
 
     public void MakeMeHappy()
@@ -135,6 +152,14 @@ public class AiAgent : MonoBehaviour
         if (Physics.Raycast(_destination, -transform.up, 2f, _groundLayer))
         {
             _hasSetDestination = true;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (_multipliersSystem != null)
+        {
+            _multipliersSystem.OnMovementSpeedMultiplierChange -= OnMovementSpeedChange;
         }
     }
 }

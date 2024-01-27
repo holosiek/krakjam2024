@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class MultipliersSystem : GameSystem
 {
+    public Action<float> OnMovementSpeedMultiplierChange;
+
     [SerializeField]
     private ModifierTag _fastMovementTag;
 
@@ -16,8 +18,20 @@ public class MultipliersSystem : GameSystem
     private float _slowBulletsMultiplier;
 
     private ModifierSystem _modifierSystem;
+    private float _movementSpeedMultiplier;
 
-    public float MovementSpeedMultiplier { get; private set; } = 1.0f;
+    public float MovementSpeedMultiplier
+    {
+        get => _movementSpeedMultiplier;
+        set
+        {
+            if (_movementSpeedMultiplier != value)
+            {
+                _movementSpeedMultiplier = value;
+                OnMovementSpeedMultiplierChange?.Invoke(value);
+            }
+        }
+    }
     public float BulletSpeedMultiplier { get; private set; } = 1.0f;
 
     private void Start()
