@@ -101,6 +101,7 @@ public class GameInstance : MonoBehaviour
 
     public void ShowGameOverScreen()
     {
+        Get<DataSystem>().AddNewBestTime(Get<TimerSystem>().GetTime());
         UiSystem.GameOverScreen.ShowGameOverScreen();
     }
 
