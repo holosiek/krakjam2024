@@ -4,6 +4,9 @@ using UnityEngine;
 public class ProjectileBullet : MonoBehaviour
 {
     [SerializeField]
+    private float _damage = 20;
+
+    [SerializeField]
     private float _speed;
 
     [SerializeField]

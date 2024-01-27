@@ -9,7 +9,7 @@ public abstract class AbstractPhysicTrigger<TTriggerable> : MonoBehaviour
     [ReadOnly]
     private int _objectsInTriggerCount = 0;
 
-    private readonly List<TTriggerable> _objectsInTrigger = new();
+    protected readonly List<TTriggerable> _objectsInTrigger = new();
 
     private void OnTriggerEnter(Collider other)
     {

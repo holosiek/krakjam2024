@@ -15,12 +15,9 @@ public class ShootingWeapon : MonoBehaviour
     private bool _isHoldingTrigger;
     private float _lastBulletTimeStamp;
 
-    private CameraSystem _cameraSystem;
-
-    private void Start()
+    protected virtual void Start()
     {
         _lastBulletTimeStamp = _timeStampBetweenBullets;
-        _cameraSystem = FindAnyObjectByType<CameraSystem>();
     }
 
     public void HandleInput(TriggerPhase triggerPhase)
@@ -46,10 +43,15 @@ public class ShootingWeapon : MonoBehaviour
         }
     }
 
-    private void SpawnBullet()
+    protected virtual void SpawnBullet()
     {
-        var bullet = Instantiate(_projectileBullet, _cameraSystem.MainCamera.transform);
+        SpawnBullet(_muzzle);
+    }
+
+    protected void SpawnBullet(Transform bulletSource)
+    {
+        var bullet = Instantiate(_projectileBullet, bulletSource);
         bullet.transform.SetParent(null);
-        bullet.Fire(_cameraSystem.MainCamera.transform.forward);
+        bullet.Fire(bulletSource.forward);
     }
 }
