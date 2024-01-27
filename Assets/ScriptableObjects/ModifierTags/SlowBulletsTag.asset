@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ff73f9103ee4716a378e092127e770e, type: 3}
-  m_Name: Test2Modifier
+  m_Script: {fileID: 11500000, guid: 010af5cd2ea44cb4bc95b393ddd6309d, type: 3}
+  m_Name: SlowBulletsTag
   m_EditorClassIdentifier: 
-  ModifierTag: {fileID: 11400000, guid: 8156c0354e957db428d549c02ae334a6, type: 2}
-  Image: {fileID: 21300000, guid: 0e8c251d67dbf5d4fa90251c9a7bcf49, type: 3}
-  Text: Twoja Stara

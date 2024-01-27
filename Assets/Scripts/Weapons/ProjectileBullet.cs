@@ -21,12 +21,13 @@ public class ProjectileBullet : AbstractBullet
     {
         var currentTime = 0f;
         direction = transform.InverseTransformDirection(direction);
+        var speedMultiplier = GameInstance.Instance.Get<MultipliersSystem>().BulletSpeedMultiplier;
 
-        while (_lifetime > currentTime)
+        while (_lifetime / speedMultiplier > currentTime)
         {
             var deltaTime = Time.deltaTime;
             currentTime += deltaTime;
-            transform.Translate(direction * _speed * deltaTime);
+            transform.Translate(direction * _speed * deltaTime * speedMultiplier);
             CheckHit();
             yield return null;
         }

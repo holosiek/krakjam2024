@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -31,6 +32,7 @@ public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplay
     private InputSystem _inputSystem;
 
     private PawnWeaponController _weaponController;
+    private MultipliersSystem _multipliersSystem;
 
     private Vector3 _currentJumpVelocity;
     private Vector3 _currentLookInput = Vector3.zero;
@@ -49,7 +51,8 @@ public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplay
 
     private void Start()
     {
-        _inputSystem = FindAnyObjectByType<InputSystem>();
+        _inputSystem = GameInstance.Instance.Get<InputSystem>();
+        _multipliersSystem = GameInstance.Instance.Get<MultipliersSystem>();
 
         _inputActions = _inputSystem.PlayerInputAction;
         _inputActions.Gameplay.SetCallbacks(this);
@@ -97,8 +100,9 @@ public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplay
         cameraForward.y = 0;
 
         var desiredMoveInput = cameraForward * _currentMoveInput.y + cameraRight * _currentMoveInput.x;
-        _characterController.Move(desiredMoveInput * _deltaTime * _movementSpeed);
-        _characterController.Move(_currentJumpVelocity * _deltaTime);
+        var speedMultiplier = _deltaTime * _movementSpeed * _multipliersSystem.MovementSpeedMultiplier;
+        _characterController.Move(desiredMoveInput * speedMultiplier);
+        _characterController.Move(_currentJumpVelocity * _deltaTime * _multipliersSystem.MovementSpeedMultiplier);
 
         _currentJumpVelocity.y = Mathf.Clamp(
             _currentJumpVelocity.y - _fallAcceleration,

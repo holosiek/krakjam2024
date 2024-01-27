@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3807876229934301056
+--- !u!1 &9210484349372634948
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8237104511514985601}
-  - component: {fileID: 1159088399318513673}
+  - component: {fileID: 78111635119932836}
+  - component: {fileID: 7391527589086128814}
   m_Layer: 0
-  m_Name: P_ModifiersSystem
+  m_Name: P_MultipliersSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8237104511514985601
+--- !u!4 &78111635119932836
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3807876229934301056}
+  m_GameObject: {fileID: 9210484349372634948}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,23 +32,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1159088399318513673
+--- !u!114 &7391527589086128814
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3807876229934301056}
+  m_GameObject: {fileID: 9210484349372634948}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9fe344215004794adcc6f7f5a683691, type: 3}
+  m_Script: {fileID: 11500000, guid: e16faf32e6167314d9f65a4fe042329f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _modifiersAvailable:
-  - {fileID: 11400000, guid: 97eb068ebf28b214ebe7f15a685016c4, type: 2}
-  - {fileID: 11400000, guid: b3348fb15c462fb428bcf23d8ee2b8cb, type: 2}
-  - {fileID: 11400000, guid: 4a0839b2136451b47bc35648e03e617b, type: 2}
-  - {fileID: 11400000, guid: cc3091468fe23804b987d482e43b0984, type: 2}
-  - {fileID: 11400000, guid: 77c93273c8f70c545ba7ec721bfb613a, type: 2}
-  - {fileID: 11400000, guid: d6f30777a7a099440a0beb899b5ba9fb, type: 2}
-  _modifiersList: []
+  _fastMovementTag: {fileID: 11400000, guid: 2a21facb9d163e647a0fb1ba7a7ca07a, type: 2}
+  _fastMovementMultiplier: 10
+  _slowBulletsTag: {fileID: 11400000, guid: ea1adaa4126640f4b8d1d6a49484a11e, type: 2}
+  _slowBulletsMultiplier: 0.1
