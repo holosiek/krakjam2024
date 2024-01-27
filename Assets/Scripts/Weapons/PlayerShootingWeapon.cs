@@ -15,5 +15,6 @@ public class PlayerShootingWeapon : ShootingWeapon
     protected override void SpawnBullet()
     {
         SpawnBullet(CameraTransform);
+        _onShootActivable?.Activate();
     }
 }

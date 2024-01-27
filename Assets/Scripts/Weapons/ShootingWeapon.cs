@@ -9,6 +9,9 @@ public class ShootingWeapon : MonoBehaviour
     private AbstractBullet _bullet;
 
     [SerializeField]
+    protected AbstractActivable _onShootActivable;
+
+    [SerializeField]
     [Min(0.1f)]
     private float _timeStampBetweenBullets = 0.2f;
 
@@ -46,6 +49,7 @@ public class ShootingWeapon : MonoBehaviour
     protected virtual void SpawnBullet()
     {
         SpawnBullet(_muzzle);
+        _onShootActivable?.Activate();
     }
 
     protected void SpawnBullet(Transform bulletSource)
