@@ -9,6 +9,9 @@ public class GameOverScreen : MonoBehaviour, PlayerInputActions.IAdditionalActio
     
     [SerializeField]
     private TMP_Text _bestTimeLabel;
+    
+    [SerializeField]
+    private TMP_Text _modifiersCollectedLabel;
 
     [SerializeField]
     private CanvasGroup _gameOverScreen;
@@ -26,6 +29,7 @@ public class GameOverScreen : MonoBehaviour, PlayerInputActions.IAdditionalActio
         float time = timerSystem.GetTime();
         _timerLabel.SetText(timerSystem.GetReadableTime(time));
         _bestTimeLabel.SetText(timerSystem.GetReadableTime(GameInstance.Instance.Get<DataSystem>().GetBestTime()));
+        _modifiersCollectedLabel.SetText(GameInstance.Instance.Get<ModifierSystem>().ModifiersList.Count.ToString());
         timerSystem.StopTimer();
         _gameOverScreen.alpha = 1;
 
