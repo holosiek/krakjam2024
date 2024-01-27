@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5299116350116877915, guid: 186192e6106b3e7469372949fffa306b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.76
       objectReference: {fileID: 0}
     - target: {fileID: 5299116350116877915, guid: 186192e6106b3e7469372949fffa306b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -56,6 +56,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5767719212351579642, guid: 186192e6106b3e7469372949fffa306b, type: 3}
+      propertyPath: _bullet
+      value: 
+      objectReference: {fileID: 971771609269733554, guid: 23c6ed28b5fb4794caabe2f47fa9dcfa, type: 3}
+    - target: {fileID: 5767719212351579642, guid: 186192e6106b3e7469372949fffa306b, type: 3}
+      propertyPath: _shootingSpriteTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767719212351579642, guid: 186192e6106b3e7469372949fffa306b, type: 3}
+      propertyPath: _idleSprites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767719212351579642, guid: 186192e6106b3e7469372949fffa306b, type: 3}
+      propertyPath: _idleSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: e2bd2a02747b12643abc362e9252d0de, type: 3}
+    - target: {fileID: 5767719212351579642, guid: 186192e6106b3e7469372949fffa306b, type: 3}
+      propertyPath: _shootingSprites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767719212351579642, guid: 186192e6106b3e7469372949fffa306b, type: 3}
+      propertyPath: _shootingSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: e88572299024c874c816253410670dcc, type: 3}
     - target: {fileID: 7916780711870519592, guid: 186192e6106b3e7469372949fffa306b, type: 3}
       propertyPath: m_Name
       value: P_Weapon_MeowCatGun

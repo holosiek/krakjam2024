@@ -14,4 +14,7 @@ public class UiSystem : GameSystem
 
 	[SerializeField]
 	public GameOverScreen GameOverScreen;
+
+	[SerializeField]
+	public WeaponHolder WeaponHolder;
 }
