@@ -59,7 +59,10 @@ public class AiAgent : MonoBehaviour
     private void AttackUpdate()
     {
         NavMeshAgent.SetDestination(transform.position);
-        transform.LookAt(_pawnAttackRangeDetector.TriggeredPawn.PawnRoot.position);
+
+        var pawnPosition = _pawnAttackRangeDetector.TriggeredPawn.PawnRoot.position;
+        pawnPosition.y = transform.position.y;
+        transform.LookAt(pawnPosition);
 
         if (!_isHoldingWeaponTrigger)
         {
