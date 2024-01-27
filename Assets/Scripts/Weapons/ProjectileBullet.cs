@@ -4,6 +4,9 @@ using UnityEngine;
 public class ProjectileBullet : MonoBehaviour
 {
     [SerializeField]
+    private LayerMask _hitBoxLayer;
+
+    [SerializeField]
     private float _damage = 20;
 
     [SerializeField]
@@ -27,9 +30,19 @@ public class ProjectileBullet : MonoBehaviour
             var deltaTime = Time.deltaTime;
             currentTime += deltaTime;
             transform.Translate(direction * _speed * deltaTime);
+            CheckHit();
             yield return null;
         }
 
         Destroy(gameObject);
+    }
+
+    private void CheckHit()
+    {
+        if (Physics.Raycast(transform.position, transform.forward, out var raycastHit, 0.1f, _hitBoxLayer))
+        {
+            raycastHit.collider.GetComponent<HitBox>().DealDamage(_damage);
+            Destroy(gameObject);
+        }
     }
 }
