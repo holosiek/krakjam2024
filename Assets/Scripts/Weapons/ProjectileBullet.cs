@@ -39,9 +39,9 @@ public class ProjectileBullet : MonoBehaviour
 
     private void CheckHit()
     {
-        if (Physics.Raycast(transform.position, transform.forward, out var raycastHit, 0.1f, _hitBoxLayer))
+        if (Physics.Raycast(transform.position, transform.forward, out var raycastHit, 0.4f, _hitBoxLayer))
         {
-            raycastHit.collider.GetComponent<HitBox>().DealDamage(_damage);
+            raycastHit.collider.GetComponent<HitBox>()?.DealDamage(_damage);
             Destroy(gameObject);
         }
     }

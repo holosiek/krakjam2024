@@ -152,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitBoxLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 584
   _damage: 20
   _speed: 40
   _lifetime: 1
