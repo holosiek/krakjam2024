@@ -26,7 +26,6 @@ public class HealthBar : MonoBehaviour
 	public void SetByPercent(float percent)
 	{
 		float reversedPercent = 1 - percent;
-		Debug.Log(reversedPercent);
 		HealthImg.rectTransform.offsetMax = new Vector2(-_width * reversedPercent, HealthImg.rectTransform.offsetMax.y);
 	}
 }
