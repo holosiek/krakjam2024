@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 
-public class FullScreenEffectSystem : GameSystem
+public class MaterialChangerSystem : GameSystem
 {
 	[SerializeField]
-	private Material _fullScreenMaterial;
-
+	private Material[] _materials;
+	
 	[SerializeField]
-	private ModifierTag _exampleFullScreenModifierTag;
+	private ModifierTag _fasolkaModifierTag;
 	
 	private ModifierSystem _modifierSystem;
+	private static readonly int _fasolkiOn = Shader.PropertyToID("_FasolkiOn");
 
-	private static readonly int _testColor = Shader.PropertyToID("_TestColor");
+	private bool _isFasolki = false;
 
 	public void Awake()
 	{
@@ -24,22 +25,30 @@ public class FullScreenEffectSystem : GameSystem
 		_modifierSystem.OnModifierListUpdate -= OnModifierListUpdate;
 		ClearModifiers();
 	}
-	
-	private void ClearModifiers()
-	{
-		_fullScreenMaterial.SetColor(_testColor, Color.white);
-	}
 
 	private void OnModifierListUpdate(Modifier modifier)
 	{
 		CheckModifiers();
 	}
 
+	private void ClearModifiers()
+	{
+		foreach (var mat in _materials)
+		{
+			mat.SetInt(_fasolkiOn, 0);
+		}
+	}
+	
 	private void CheckModifiers()
 	{
-		if (_modifierSystem.HasModifierTag(_exampleFullScreenModifierTag))
+		if (!_isFasolki && _modifierSystem.HasModifierTag(_fasolkaModifierTag))
 		{
-			_fullScreenMaterial.SetColor(_testColor, Color.green);
+			foreach (var mat in _materials)
+			{
+				mat.SetInt(_fasolkiOn, 1);
+			}
+
+			_isFasolki = true;
 		}
 	}
 }
