@@ -43,7 +43,12 @@ public class GameInstance : MonoBehaviour
         }
         else
         {
-            Debug.LogError("More than 1 gameinstance found!!!");
+            Debug.LogError("More than 1 gameinstance found, destroying other ones.");
+
+            for (int i = 1; i < objs.Length; i++)
+            {
+                Destroy(objs[i].gameObject);
+            }
         }
     }
 
