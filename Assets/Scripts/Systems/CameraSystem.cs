@@ -1,3 +1,4 @@
+using System;
 using Cinemachine;
 using UnityEngine;
 
@@ -15,4 +16,10 @@ public class CameraSystem : MonoBehaviour
     public Camera MainCamera => _mainCamera != null
         ? _mainCamera
         : _mainCamera = GetComponent<Camera>();
+
+    public void OnDisable()
+    {
+        _mainCamera = null;
+        _cinemachineBrain = null;
+    }
 }
