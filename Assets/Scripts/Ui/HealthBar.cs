@@ -7,15 +7,20 @@ public class HealthBar : MonoBehaviour
 	[SerializeField]
 	private Image _healthImg;
 
-	public Image HealthImg => _healthImg;
-
+	[SerializeField]
 	private float _width;
+	
+	[SerializeField]
+	[Range(0f, 1f)]
+	private float _percent = 1f;
+	
+	public Image HealthImg => _healthImg;
 
 	private float max = 1;
 
-	public void Awake()
+	public void OnValidate()
 	{
-		_width = GetComponent<RectTransform>().rect.width;
+		SetByPercent(_percent);
 	}
 
 	public void SetByPercent(float percent)

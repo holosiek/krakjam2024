@@ -7,6 +7,9 @@ public class HealthManager : MonoBehaviour
 
     [SerializeField]
     private float _maxHealth = 100f;
+    
+    [SerializeField]
+    private bool _isPlayer = false;
 
     private float _health;
 
@@ -21,6 +24,16 @@ public class HealthManager : MonoBehaviour
             {
                 _health = newHealth;
                 HealthPercentage = Mathf.Lerp(0, _maxHealth, newHealth);
+                
+                if (_isPlayer)
+                {
+                    GameInstance.UiSystem.HealthBar.SetByPercent(newHealth/_maxHealth);
+
+                    if (HealthPercentage == 0)
+                    {
+                        GameInstance.Instance.GameRestart();
+                    }
+                }
                 OnHealthChangedEvent?.Invoke();
             }
         }

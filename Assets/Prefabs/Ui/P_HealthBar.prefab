@@ -211,6 +211,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthImg: {fileID: 3160796555605323228}
+  _width: 0
+  _percent: 1
 --- !u!114 &2440478147466675274
 MonoBehaviour:
   m_ObjectHideFlags: 0

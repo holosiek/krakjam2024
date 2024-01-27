@@ -10,4 +10,7 @@ public class UiSystem : GameSystem
 
 	[SerializeField]
 	public ModifierList ModifierList;
+
+	[SerializeField]
+	public GameOverScreen GameOverScreen;
 }

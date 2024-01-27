@@ -95,7 +95,7 @@ public class GameInstance : MonoBehaviour
 
     public void GameRestart()
     {
-        
+        UiSystem.GameOverScreen.ShowGameOverScreen();
     }
     
     public void Awake()

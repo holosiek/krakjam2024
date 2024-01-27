@@ -507,6 +507,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 905391339959734155, guid: 357706985119a564188db0ce7d046799, type: 3}
+      propertyPath: _width
+      value: 390
+      objectReference: {fileID: 0}
     - target: {fileID: 1101255508444625613, guid: 357706985119a564188db0ce7d046799, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -538,6 +542,14 @@ PrefabInstance:
     - target: {fileID: 1691211235874556526, guid: 357706985119a564188db0ce7d046799, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514092638840167236, guid: 357706985119a564188db0ce7d046799, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0.00012207031
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514092638840167236, guid: 357706985119a564188db0ce7d046799, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 5325690330468010572, guid: 357706985119a564188db0ce7d046799, type: 3}
       propertyPath: m_text
@@ -841,6 +853,10 @@ PrefabInstance:
     - target: {fileID: 228636750348226379, guid: aa990639f45b3d14daa4d6ed12f7ee4f, type: 3}
       propertyPath: m_Name
       value: P_PlayerPawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 1467757841399287504, guid: aa990639f45b3d14daa4d6ed12f7ee4f, type: 3}
+      propertyPath: _isPlayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3128384136421953108, guid: aa990639f45b3d14daa4d6ed12f7ee4f, type: 3}
       propertyPath: m_LocalPosition.x
