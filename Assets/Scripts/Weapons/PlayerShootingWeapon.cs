@@ -30,11 +30,6 @@ public class PlayerShootingWeapon : ShootingWeapon
         }
     }
 
-    private void OnEnable()
-    {
-        UpdateSprite(GetNextIdleSprite());
-    }
-
     private Sprite GetNextIdleSprite()
     {
         var nextIdle = _idleIndex + 1;
