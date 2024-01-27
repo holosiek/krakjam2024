@@ -114,9 +114,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8424644799056598407}
-  - component: {fileID: 971771609269733554}
+  - component: {fileID: 3055239445649657410}
   m_Layer: 0
-  m_Name: P_ProjectileBullet
+  m_Name: P_RaycastBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,7 +138,7 @@ Transform:
   - {fileID: 5807453914612651828}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &971771609269733554
+--- !u!114 &3055239445649657410
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,12 +147,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 368456982619349438}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 226b4ac6460cb1f409c89091d81cce45, type: 3}
+  m_Script: {fileID: 11500000, guid: ba048dc6ba21dbe4c82e31687e68b768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _hitLayerMask:
     serializedVersion: 2
     m_Bits: 584
+  _range: 4
   _damage: 20
-  _speed: 40
-  _lifetime: 1

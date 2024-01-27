@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _muzzle: {fileID: 5848090220796492473}
-  _projectileBullet: {fileID: 971771609269733554, guid: b1bc4ed5a822b3140845b74d723d7a6d, type: 3}
+  _bullet: {fileID: 971771609269733554, guid: b1bc4ed5a822b3140845b74d723d7a6d, type: 3}
   _timeStampBetweenBullets: 0.2
 --- !u!1 &8784737601968625046
 GameObject:

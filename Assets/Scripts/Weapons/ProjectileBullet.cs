@@ -1,11 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class ProjectileBullet : MonoBehaviour
+public class ProjectileBullet : AbstractBullet
 {
-    [SerializeField]
-    private LayerMask _hitBoxLayer;
-
     [SerializeField]
     private float _damage = 20;
 
@@ -15,7 +12,7 @@ public class ProjectileBullet : MonoBehaviour
     [SerializeField]
     private float _lifetime;
 
-    public void Fire(Vector3 direction)
+    public override void Fire(Vector3 direction)
     {
         StartCoroutine(FireRoutine(direction));
     }
@@ -39,7 +36,7 @@ public class ProjectileBullet : MonoBehaviour
 
     private void CheckHit()
     {
-        if (Physics.Raycast(transform.position, transform.forward, out var raycastHit, 0.4f, _hitBoxLayer))
+        if (Physics.Raycast(transform.position, transform.forward, out var raycastHit, 0.4f, _hitLayerMask))
         {
             raycastHit.collider.GetComponent<HitBox>()?.DealDamage(_damage);
             Destroy(gameObject);

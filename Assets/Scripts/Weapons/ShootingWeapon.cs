@@ -6,7 +6,7 @@ public class ShootingWeapon : MonoBehaviour
     private Transform _muzzle;
 
     [SerializeField]
-    private ProjectileBullet _projectileBullet;
+    private AbstractBullet _bullet;
 
     [SerializeField]
     [Min(0.1f)]
@@ -50,7 +50,7 @@ public class ShootingWeapon : MonoBehaviour
 
     protected void SpawnBullet(Transform bulletSource)
     {
-        var bullet = Instantiate(_projectileBullet, bulletSource);
+        var bullet = Instantiate(_bullet, bulletSource);
         bullet.transform.SetParent(null);
         bullet.Fire(bulletSource.forward);
     }
