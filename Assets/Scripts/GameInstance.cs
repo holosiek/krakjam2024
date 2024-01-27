@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameInstance : MonoBehaviour
@@ -98,7 +99,7 @@ public class GameInstance : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    public void GameRestart()
+    public void ShowGameOverScreen()
     {
         UiSystem.GameOverScreen.ShowGameOverScreen();
     }

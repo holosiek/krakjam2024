@@ -692,6 +692,34 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Additional"",
+            ""id"": ""0165f2e4-537a-4b51-81ff-a2152591ea77"",
+            ""actions"": [
+                {
+                    ""name"": ""Reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""8fd556f9-da43-46ff-a892-2ba00dbec316"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""d14166c9-7a98-4467-ad7b-85c56018bfe3"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -731,6 +759,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        // Additional
+        m_Additional = asset.FindActionMap("Additional", throwIfNotFound: true);
+        m_Additional_Reset = m_Additional.FindAction("Reset", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -976,6 +1007,52 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // Additional
+    private readonly InputActionMap m_Additional;
+    private List<IAdditionalActions> m_AdditionalActionsCallbackInterfaces = new List<IAdditionalActions>();
+    private readonly InputAction m_Additional_Reset;
+    public struct AdditionalActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public AdditionalActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Reset => m_Wrapper.m_Additional_Reset;
+        public InputActionMap Get() { return m_Wrapper.m_Additional; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(AdditionalActions set) { return set.Get(); }
+        public void AddCallbacks(IAdditionalActions instance)
+        {
+            if (instance == null || m_Wrapper.m_AdditionalActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_AdditionalActionsCallbackInterfaces.Add(instance);
+            @Reset.started += instance.OnReset;
+            @Reset.performed += instance.OnReset;
+            @Reset.canceled += instance.OnReset;
+        }
+
+        private void UnregisterCallbacks(IAdditionalActions instance)
+        {
+            @Reset.started -= instance.OnReset;
+            @Reset.performed -= instance.OnReset;
+            @Reset.canceled -= instance.OnReset;
+        }
+
+        public void RemoveCallbacks(IAdditionalActions instance)
+        {
+            if (m_Wrapper.m_AdditionalActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IAdditionalActions instance)
+        {
+            foreach (var item in m_Wrapper.m_AdditionalActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_AdditionalActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public AdditionalActions @Additional => new AdditionalActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -1004,5 +1081,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnRightClick(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+    }
+    public interface IAdditionalActions
+    {
+        void OnReset(InputAction.CallbackContext context);
     }
 }

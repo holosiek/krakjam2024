@@ -118,4 +118,9 @@ public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplay
         _cameraHolder.Rotate(Vector3.right * -_currentLookInput.y * _sensitivity * _deltaTime);
         _playerRoot.Rotate(Vector3.up * _currentLookInput.x * _sensitivity * _deltaTime);
     }
+
+    private void OnDestroy()
+    {
+        _inputActions.Gameplay.RemoveCallbacks(this);
+    }
 }

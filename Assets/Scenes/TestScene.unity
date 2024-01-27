@@ -288,6 +288,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_AiAgent
       objectReference: {fileID: 0}
+    - target: {fileID: 8566998472524842126, guid: 09212bf7881fabe499da2ca25824f036, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -670,6 +670,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Additional",
+            "id": "0165f2e4-537a-4b51-81ff-a2152591ea77",
+            "actions": [
+                {
+                    "name": "Reset",
+                    "type": "Button",
+                    "id": "8fd556f9-da43-46ff-a892-2ba00dbec316",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d14166c9-7a98-4467-ad7b-85c56018bfe3",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Reset",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

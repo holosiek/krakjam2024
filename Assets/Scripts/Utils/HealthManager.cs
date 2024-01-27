@@ -31,7 +31,7 @@ public class HealthManager : MonoBehaviour
 
                     if (HealthPercentage == 0)
                     {
-                        GameInstance.Instance.GameRestart();
+                        GameInstance.Instance.ShowGameOverScreen();
                     }
                 }
                 OnHealthChangedEvent?.Invoke();
