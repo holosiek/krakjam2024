@@ -54,6 +54,8 @@ MonoBehaviour:
   _playerRoot: {fileID: 3128384136421953108}
   _cameraHolder: {fileID: 8487116347680923051}
   _characterController: {fileID: 7711471179825533556}
+  _jumpForce: 10
+  _fallAcceleration: 0.1
   _movementSpeed: 5
   _sensitivity: 20
 --- !u!143 &7711471179825533556

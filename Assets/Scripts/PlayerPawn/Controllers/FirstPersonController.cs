@@ -13,6 +13,12 @@ public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplay
     private CharacterController _characterController;
 
     [SerializeField]
+    private float _jumpForce = 50f;
+
+    [SerializeField]
+    private float _fallAcceleration = 1f;
+
+    [SerializeField]
     private float _movementSpeed = 5f;
 
     [SerializeField]
@@ -23,6 +29,7 @@ public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplay
 
     private PawnWeaponController _weaponController;
 
+    private Vector3 _currentJumpVelocity;
     private Vector3 _currentLookInput = Vector3.zero;
     private Vector3 _currentMoveInput = Vector3.zero;
     private float _deltaTime;
@@ -63,6 +70,14 @@ public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplay
         _weaponController.OnFireInput(context);
     }
 
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed && _characterController.isGrounded)
+        {
+            _currentJumpVelocity = new Vector3(0, _jumpForce, 0);
+        }
+    }
+
     private void Update()
     {
         _deltaTime = Time.deltaTime;
@@ -80,7 +95,12 @@ public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplay
 
         var desiredMoveInput = cameraForward * _currentMoveInput.y + cameraRight * _currentMoveInput.x;
         _characterController.Move(desiredMoveInput * _deltaTime * _movementSpeed);
-        _characterController.Move(Physics.gravity * _deltaTime);
+        _characterController.Move(_currentJumpVelocity * _deltaTime);
+
+        _currentJumpVelocity.y = Mathf.Clamp(
+            _currentJumpVelocity.y - _fallAcceleration,
+            Physics.gravity.y,
+            _currentJumpVelocity.y);
     }
 
     private void RotateCharacter()
