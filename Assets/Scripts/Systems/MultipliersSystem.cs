@@ -15,10 +15,10 @@ public class MultipliersSystem : GameSystem
     private ModifierTag _slowBulletsTag;
 
     [SerializeField]
-    private float _slowBulletsMultiplier;
+    private float _slowBulletsMultiplier = 1.0f;
 
     private ModifierSystem _modifierSystem;
-    private float _movementSpeedMultiplier;
+    private float _movementSpeedMultiplier = 1.0f;
 
     public float MovementSpeedMultiplier
     {
