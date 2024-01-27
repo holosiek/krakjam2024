@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8440689167702944751}
   - component: {fileID: 1809536543019410504}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2196872960254311120}
   - component: {fileID: 4264757461646732874}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5042468537299337376}
   - component: {fileID: 851411522126216726}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2560197967269608446}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: P_WindowShotable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 397953238172091456}
   - component: {fileID: 801569618545946792}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,6 +299,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2c63e5b7a396f9646aeb3fa74d16810a, type: 3}
       propertyPath: m_Name
       value: MD_Window
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2c63e5b7a396f9646aeb3fa74d16810a, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

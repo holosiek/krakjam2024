@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 955124320482197925}
   - component: {fileID: 8873046779967886312}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6484776318853836300}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: P_Philar_Cylindric
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,6 +139,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f49e5a050d633154a97a75a59b260779, type: 3}
       propertyPath: m_Name
       value: MD_Philar_Cylindric
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f49e5a050d633154a97a75a59b260779, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
