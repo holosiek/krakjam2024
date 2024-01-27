@@ -620,6 +620,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2990436745110386198, guid: a3d2fa2af13fc6f469c0f493248ab38c, type: 3}
+      propertyPath: _width
+      value: 390
+      objectReference: {fileID: 0}
+    - target: {fileID: 2990436745110386198, guid: a3d2fa2af13fc6f469c0f493248ab38c, type: 3}
+      propertyPath: _percent
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3160796555605323228, guid: a3d2fa2af13fc6f469c0f493248ab38c, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -628,6 +636,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: b55269c4ca8036a44949cabc2b9b627e, type: 3}
+    - target: {fileID: 3294081515130465172, guid: a3d2fa2af13fc6f469c0f493248ab38c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3294081515130465172, guid: a3d2fa2af13fc6f469c0f493248ab38c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5065588906828786884, guid: a3d2fa2af13fc6f469c0f493248ab38c, type: 3}
       propertyPath: m_Name
       value: P_HealthBar
