@@ -13,7 +13,8 @@ public class RaycastBullet : AbstractBullet
         if (Physics.Raycast(transform.position, transform.forward, out var raycastHit, _range, _hitLayerMask))
         {
             raycastHit.collider.GetComponent<HitBox>()?.DealDamage(_damage);
-            Destroy(gameObject);
         }
+
+        Destroy(gameObject);
     }
 }

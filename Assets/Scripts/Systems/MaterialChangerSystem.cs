@@ -13,7 +13,7 @@ public class MaterialChangerSystem : GameSystem
 
 	private bool _isFasolki = false;
 
-	public void Awake()
+	public void Start()
 	{
 		_modifierSystem = GameInstance.Instance.Get<ModifierSystem>();
 		_modifierSystem.OnModifierListUpdate += OnModifierListUpdate;

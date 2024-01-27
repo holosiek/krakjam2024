@@ -1,32 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameInstance : MonoBehaviour
 {
     [SerializeField]
     public List<GameSystem> Systems;
-    
+
     private static GameInstance _gameInstance;
     private static UiSystem _uiSystem;
 
-    public static GameInstance Instance
-    {
-        get
-        {
-            if (_gameInstance == null)
-            {
-                Initialize();
-            }
-
-            return _gameInstance;
-        }
-    }
+    public static GameInstance Instance => _gameInstance;
 
     public static UiSystem UiSystem => _uiSystem;
 
-    private static void Initialize()
+    private void Initialize()
     {
         var objs = FindObjectsOfType<GameInstance>();
 
@@ -45,25 +33,21 @@ public class GameInstance : MonoBehaviour
         else
         {
             Debug.LogError("More than 1 gameinstance found, destroying other ones.");
-
-            for (int i = 1; i < objs.Length; i++)
-            {
-                Destroy(objs[i].gameObject);
-            }
+            Destroy(gameObject);
         }
     }
 
     private static void UpdateSystemList()
     {
         var systems = FindObjectsOfType<GameSystem>();
-        
+
         foreach (var sys in systems)
         {
             if (sys is UiSystem uiSystem)
             {
                 _uiSystem = uiSystem;
             }
-            
+
             bool exists = false;
             foreach (var systemInside in Instance.Systems)
             {
@@ -113,7 +97,7 @@ public class GameInstance : MonoBehaviour
         UiSystem.ModifierList.ResetModifiers();
         UiSystem.HealthBar.SetByPercent(1);
     }
-    
+
     public void Awake()
     {
         Initialize();

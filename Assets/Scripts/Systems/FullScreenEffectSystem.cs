@@ -13,7 +13,7 @@ public class FullScreenEffectSystem : GameSystem
 
 	private static readonly int _testColor = Shader.PropertyToID("_TestColor");
 
-	public void Awake()
+	public void Start()
 	{
 		_modifierSystem = GameInstance.Instance.Get<ModifierSystem>();
 		_modifierSystem.OnModifierListUpdate += OnModifierListUpdate;
