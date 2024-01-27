@@ -150,9 +150,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5767719212351579642, guid: 186192e6106b3e7469372949fffa306b, type: 3}
+      propertyPath: _width
+      value: 136
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767719212351579642, guid: 186192e6106b3e7469372949fffa306b, type: 3}
       propertyPath: _bullet
       value: 
       objectReference: {fileID: 3055239445649657410, guid: 73bafa5c9c51f7c4ea8d2b2040e34e5b, type: 3}
+    - target: {fileID: 5767719212351579642, guid: 186192e6106b3e7469372949fffa306b, type: 3}
+      propertyPath: _weaponType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767719212351579642, guid: 186192e6106b3e7469372949fffa306b, type: 3}
+      propertyPath: _canvasPosition.y
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 5767719212351579642, guid: 186192e6106b3e7469372949fffa306b, type: 3}
       propertyPath: _shootingSpriteTime
       value: 0.1

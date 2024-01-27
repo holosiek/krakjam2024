@@ -57,9 +57,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5767719212351579642, guid: 186192e6106b3e7469372949fffa306b, type: 3}
+      propertyPath: _width
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767719212351579642, guid: 186192e6106b3e7469372949fffa306b, type: 3}
       propertyPath: _bullet
       value: 
       objectReference: {fileID: 971771609269733554, guid: 23c6ed28b5fb4794caabe2f47fa9dcfa, type: 3}
+    - target: {fileID: 5767719212351579642, guid: 186192e6106b3e7469372949fffa306b, type: 3}
+      propertyPath: _height
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767719212351579642, guid: 186192e6106b3e7469372949fffa306b, type: 3}
+      propertyPath: _canvasPosition.x
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767719212351579642, guid: 186192e6106b3e7469372949fffa306b, type: 3}
+      propertyPath: _canvasPosition.y
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 5767719212351579642, guid: 186192e6106b3e7469372949fffa306b, type: 3}
       propertyPath: _shootingSpriteTime
       value: 0.1

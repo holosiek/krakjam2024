@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerShootingWeapon : ShootingWeapon
 {
+    [Header("Sprite Setup")]
+    [SerializeField]
+    private WeaponType _weaponType;
+
     [SerializeField]
     private float _shootingSpriteTime;
 
@@ -16,7 +21,7 @@ public class PlayerShootingWeapon : ShootingWeapon
     private CameraSystem _cameraSystem;
     private int _idleIndex = -1;
     private int _shootingIndex = -1;
-
+    private Image _weaponImage;
     private Transform CameraTransform => _cameraSystem.MainCamera.transform;
 
     protected override void Start()
@@ -24,9 +29,17 @@ public class PlayerShootingWeapon : ShootingWeapon
         base.Start();
         _cameraSystem = FindAnyObjectByType<CameraSystem>();
 
+        _weaponImage = _weaponType == WeaponType.CatGun
+            ? GameInstance.UiSystem.WeaponHolder.CatGunImage
+            : _weaponType == WeaponType.Paws
+            ? GameInstance.UiSystem.WeaponHolder.PawsImage
+            : GameInstance.UiSystem.WeaponHolder.CatGunImage;
+
         if (gameObject.activeInHierarchy)
         {
+            GameInstance.UiSystem.WeaponHolder.DeactivateAllImages();
             UpdateSprite(GetNextIdleSprite());
+            _weaponImage.gameObject.SetActive(true);
         }
     }
 
@@ -46,7 +59,7 @@ public class PlayerShootingWeapon : ShootingWeapon
 
     private void UpdateSprite(Sprite sprite)
     {
-        GameInstance.UiSystem.WeaponHolder.SetSprite(sprite);
+        _weaponImage.sprite = sprite;
     }
 
     protected override void SpawnBullet()
@@ -64,5 +77,11 @@ public class PlayerShootingWeapon : ShootingWeapon
         yield return new WaitForSeconds(_shootingSpriteTime);
 
         UpdateSprite(GetNextIdleSprite());
+    }
+
+    private enum WeaponType
+    {
+        CatGun,
+        Paws
     }
 }
