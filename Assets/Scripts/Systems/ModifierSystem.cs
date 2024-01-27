@@ -3,29 +3,43 @@ using UnityEngine;
 
 public class ModifierSystem : GameSystem
 {
+
 	[SerializeField]
-	private Modifier _testModifier;
+	private List<Modifier> _modifiersAvailable = new List<Modifier>();
 
 	[SerializeField]
 	private List<Modifier> _modifiersList = new List<Modifier>();
 
 	public List<Modifier> ModifiersList => _modifiersList;
-	
-	public void ShowNotification()
+
+	public void AddNewRandomModifier()
 	{
-		if (!_modifiersList.Contains(_testModifier))
+		if (_modifiersAvailable.Count > 0)
 		{
-			_modifiersList.Add(_testModifier);
-			GameInstance.UiSystem.ModifierNotification.ShowNotificaction(_testModifier);
-			GameInstance.UiSystem.ModifierList.AddModifier(_testModifier);
+			
+			int index = Random.Range(0, _modifiersAvailable.Count);
+			var modifier = _modifiersAvailable[index];
+			
+			if (!_modifiersList.Contains(modifier))
+			{
+				_modifiersList.Add(modifier);
+				GameInstance.UiSystem.ModifierList.AddModifier(modifier);
+				ShowNotification(modifier);
+				_modifiersAvailable.RemoveAt(index);
+			}
 		}
+	}
+	
+	public void ShowNotification(Modifier modifier)
+	{
+		GameInstance.UiSystem.ModifierNotification.ShowNotificaction(modifier);
 	}
 
 	public void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Q))
 		{
-			ShowNotification();
+			AddNewRandomModifier();
 		}
 	}
 }
