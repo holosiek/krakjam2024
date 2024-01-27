@@ -45,7 +45,7 @@ public class PlayerShootingWeapon : ShootingWeapon
             ? GameInstance.UiSystem.WeaponHolder.CatGunImage
             : _weaponType == WeaponType.Paws
             ? GameInstance.UiSystem.WeaponHolder.PawsImage
-            : GameInstance.UiSystem.WeaponHolder.CatGunImage;
+            : GameInstance.UiSystem.WeaponHolder.CatLaserImage;
     }
 
     private Sprite GetNextIdleSprite()
@@ -87,6 +87,7 @@ public class PlayerShootingWeapon : ShootingWeapon
     private enum WeaponType
     {
         CatGun,
-        Paws
+        Paws,
+        CatLaser
     }
 }

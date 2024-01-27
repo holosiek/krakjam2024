@@ -16,6 +16,12 @@ public class PawnWeaponController : MonoBehaviour
     [SerializeField]
     private ShootingWeapon _pawsWeapon;
 
+    [SerializeField]
+    private ModifierTag _catLaserTag;
+
+    [SerializeField]
+    private ShootingWeapon _catLaserWeapon;
+
     private ModifierSystem _modifierSystem;
     private ShootingWeapon _activeWeapon;
 
@@ -50,6 +56,11 @@ public class PawnWeaponController : MonoBehaviour
         if (modifier.ModifierTag == _meowCatGunTag)
         {
             ActiveWeapon = _meowCatGun;
+        }
+
+        if (modifier.ModifierTag == _catLaserTag)
+        {
+            ActiveWeapon = _catLaserWeapon;
         }
     }
 
