@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -37,7 +36,7 @@ public class AiAgent : MonoBehaviour
 
     private MultipliersSystem MultipliersSystem => _multipliersSystem != null
         ? _multipliersSystem
-        : _multipliersSystem = GameInstance.Instance.Get<MultipliersSystem>(); 
+        : _multipliersSystem = GameInstance.Instance.Get<MultipliersSystem>();
 
     private bool IsPlayerInAttackRange => _pawnAttackRangeDetector.IsPawnDetected;
     private bool IsPlayerVisible => _pawnVisibilityDetector.IsPawnDetected;
