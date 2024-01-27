@@ -13,6 +13,9 @@ public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplay
     private CharacterController _characterController;
 
     [SerializeField]
+    private float _maxLookAngle = 60f;
+
+    [SerializeField]
     private float _jumpForce = 50f;
 
     [SerializeField]
@@ -105,6 +108,13 @@ public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplay
 
     private void RotateCharacter()
     {
+        float xRotation = _cameraHolder.localRotation.eulerAngles.x;
+        xRotation = xRotation > 180 ? xRotation - 360 : xRotation;
+
+        var xDelta = _currentLookInput.y * _sensitivity * _deltaTime;
+        xRotation = Mathf.Clamp(xRotation - xDelta, -_maxLookAngle, _maxLookAngle);
+
+        _cameraHolder.localRotation = Quaternion.Euler(xRotation, _cameraHolder.localRotation.y, 0);
         _cameraHolder.Rotate(Vector3.right * -_currentLookInput.y * _sensitivity * _deltaTime);
         _playerRoot.Rotate(Vector3.up * _currentLookInput.x * _sensitivity * _deltaTime);
     }
