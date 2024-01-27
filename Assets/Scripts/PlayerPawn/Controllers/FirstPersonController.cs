@@ -20,24 +20,32 @@ public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplay
 
     private PlayerInputActions _inputActions;
     private InputSystem _inputSystem;
-    private CameraSystem _cameraSystem;
+
+    private PawnWeaponController _weaponController;
 
     private Vector3 _currentLookInput = Vector3.zero;
     private Vector3 _currentMoveInput = Vector3.zero;
     private float _deltaTime;
 
-    private Camera MainCamera => _cameraSystem.MainCamera;
+    private void Awake()
+    {
+        GatherComponents();
+    }
+
+    private void GatherComponents()
+    {
+        _weaponController = GetComponentInChildren<PawnWeaponController>();
+    }
 
     private void Start()
     {
         _inputSystem = FindAnyObjectByType<InputSystem>();
-        _cameraSystem = FindAnyObjectByType<CameraSystem>();
 
         _inputActions = _inputSystem.PlayerInputAction;
         _inputActions.Gameplay.SetCallbacks(this);
         _inputActions.Gameplay.Enable();
 
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -52,7 +60,7 @@ public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplay
 
     public void OnFire(InputAction.CallbackContext context)
     {
-
+        _weaponController.OnFireInput(context);
     }
 
     private void Update()
