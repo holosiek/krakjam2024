@@ -809,7 +809,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3501443477492183797, guid: adf887d838089fe46a1a6b3b730519a1, type: 3}
       propertyPath: m_ImpulseDefinition.m_ImpulseDuration
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 413337016746167920, guid: adf887d838089fe46a1a6b3b730519a1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -857,11 +857,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9174237611935719910, guid: adf887d838089fe46a1a6b3b730519a1, type: 3}
       propertyPath: _impulseVelocity.y
-      value: -1
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9174237611935719910, guid: adf887d838089fe46a1a6b3b730519a1, type: 3}
       propertyPath: _impulseVelocity.z
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
