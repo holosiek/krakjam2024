@@ -126,8 +126,8 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _MIn: 2
-    - _Max: 3
+    - _MIn: 0.9
+    - _Max: 1
     - _Metallic: 0
     - _Min: 0.6
     - _Mode: 0
