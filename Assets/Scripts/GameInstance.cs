@@ -112,7 +112,7 @@ public class GameInstance : MonoBehaviour
         UiSystem.ModifierList.ResetModifiers();
         Get<TimerSystem>().ResetTimer();
         CleanupLevel();
-        ChangeScene(SceneManager.GetActiveScene().name);
+        ChangeScene("Tutorial");
     }
 
     public void Continue()
