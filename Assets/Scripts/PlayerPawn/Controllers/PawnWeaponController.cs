@@ -22,6 +22,9 @@ public class PawnWeaponController : MonoBehaviour
     [SerializeField]
     private ShootingWeapon _catLaserWeapon;
 
+    [SerializeField]
+    private ShootingWeapon _defaultWeapon;
+
     private ModifierSystem _modifierSystem;
     private ShootingWeapon _activeWeapon;
 
@@ -48,19 +51,26 @@ public class PawnWeaponController : MonoBehaviour
 
     private void OnModifierListUpdate(Modifier modifier)
     {
+        if (modifier == null)
+        {
+            return;
+        }
+        
         if (modifier.ModifierTag == _pawsWeaponTag)
         {
             ActiveWeapon = _pawsWeapon;
         }
-
-        if (modifier.ModifierTag == _meowCatGunTag)
+        else if (modifier.ModifierTag == _meowCatGunTag)
         {
             ActiveWeapon = _meowCatGun;
         }
-
-        if (modifier.ModifierTag == _catLaserTag)
+        else if (modifier.ModifierTag == _catLaserTag)
         {
             ActiveWeapon = _catLaserWeapon;
+        }
+        else
+        {
+            ActiveWeapon = _defaultWeapon;
         }
     }
 

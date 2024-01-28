@@ -57,10 +57,10 @@ public class ModifierSystem : GameSystem
 		foreach (var modifier in _modifiersList)
 		{
 			_modifiersAvailable.Add(modifier);
-			OnModifierListUpdate?.Invoke(modifier);
 		}
 		
 		_modifiersList.Clear();
+		OnModifierListUpdate?.Invoke(null);
 	}
 
 	public void Update()

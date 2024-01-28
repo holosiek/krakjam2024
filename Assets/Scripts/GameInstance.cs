@@ -108,10 +108,10 @@ public class GameInstance : MonoBehaviour
 
     public void RestartGame()
     {
-        ChangeScene(SceneManager.GetActiveScene().name);
         Get<ModifierSystem>().RestartModifiers();
         UiSystem.ModifierList.ResetModifiers();
         CleanupLevel();
+        ChangeScene(SceneManager.GetActiveScene().name);
     }
 
     public void Continue()

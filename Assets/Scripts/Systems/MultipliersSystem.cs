@@ -20,6 +20,9 @@ public class MultipliersSystem : GameSystem
     private ModifierSystem _modifierSystem;
     private float _movementSpeedMultiplier = 1.0f;
 
+    private bool _isSlowed = false;
+    private bool _isMovementUpped = false;
+
     public float MovementSpeedMultiplier
     {
         get => _movementSpeedMultiplier;
@@ -42,14 +45,26 @@ public class MultipliersSystem : GameSystem
 
     private void OnModifierListUpdate(Modifier modifier)
     {
-        if (modifier.ModifierTag == _fastMovementTag)
+        if (!_isMovementUpped && _modifierSystem.HasModifierTag(_fastMovementTag))
         {
             MovementSpeedMultiplier = _fastMovementMultiplier;
+            _isMovementUpped = true;
         }
-
-        if (modifier.ModifierTag == _slowBulletsTag)
+        if (_isMovementUpped && !_modifierSystem.HasModifierTag(_fastMovementTag))
+        {
+            MovementSpeedMultiplier = 1.0f;
+            _isMovementUpped = false;
+        }
+		
+        if (!_isSlowed && _modifierSystem.HasModifierTag(_slowBulletsTag))
         {
             BulletSpeedMultiplier = _slowBulletsMultiplier;
+            _isSlowed = true;
+        }
+        if (_isSlowed && !_modifierSystem.HasModifierTag(_slowBulletsTag))
+        {
+            BulletSpeedMultiplier = 1.0f;
+            _isSlowed = false;
         }
     }
 }

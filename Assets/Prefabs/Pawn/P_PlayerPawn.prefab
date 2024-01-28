@@ -137,6 +137,7 @@ MonoBehaviour:
   _pawsWeapon: {fileID: 5843711051146236347}
   _catLaserTag: {fileID: 11400000, guid: 059c1fd1c34c5ef4eaaeb258394f9dfc, type: 2}
   _catLaserWeapon: {fileID: 6841149802689360446}
+  _defaultWeapon: {fileID: 5112220308365051372}
 --- !u!1 &3309816632302848237
 GameObject:
   m_ObjectHideFlags: 0
