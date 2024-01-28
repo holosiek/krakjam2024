@@ -811,6 +811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneName: Tutorial
+  _shouldResetTimer: 1
 --- !u!114 &1924297268
 MonoBehaviour:
   m_ObjectHideFlags: 0

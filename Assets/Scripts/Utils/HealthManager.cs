@@ -16,7 +16,7 @@ public class HealthManager : MonoBehaviour
     public float Health
     {
         get => _health;
-        private set
+        set
         {
             var newHealth = Mathf.Clamp(value, 0, _maxHealth);
 
@@ -40,6 +40,7 @@ public class HealthManager : MonoBehaviour
     }
 
     public float HealthPercentage { get; private set; }
+    public float MaxHealth => _maxHealth;
 
     private void Awake()
     {
@@ -49,5 +50,10 @@ public class HealthManager : MonoBehaviour
     public void DecreaseHealth(float damage)
     {
         Health -= damage;
+    }
+    
+    public void AddHealth(float heal)
+    {
+        Health += heal;
     }
 }
