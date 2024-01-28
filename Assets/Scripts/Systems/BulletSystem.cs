@@ -11,7 +11,6 @@ public class BulletSystem : GameSystem
 	public void AddGameObjectToQueue(GameObject gj)
 	{
 		_gameObjectsQueue.Enqueue(gj);
-		Debug.Log(_gameObjectsQueue.Count);
 
 		if (_gameObjectsQueue.Count > _maxObjects)
 		{

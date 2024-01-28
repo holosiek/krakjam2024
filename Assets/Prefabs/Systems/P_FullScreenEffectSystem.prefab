@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fullScreenMaterial: {fileID: 2100000, guid: cea226f1587a9c347b451ec5d41ceafa, type: 2}
   _exampleFullScreenModifierTag: {fileID: 11400000, guid: 5b51d66a163a4374bbde6d44ccc03bea, type: 2}
+  _quakeModeModifierTag: {fileID: 11400000, guid: 25ff454fb2937cf489ed97a1035e5d77, type: 2}
