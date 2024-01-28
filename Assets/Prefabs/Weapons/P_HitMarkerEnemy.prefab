@@ -4777,7 +4777,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c2312536500897547a8bf7e79dd6925a, type: 2}
+  - {fileID: 2100000, guid: f26116ab40e83fb44b4e38e1ea815d34, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4839,7 +4839,7 @@ GameObject:
   - component: {fileID: 6857980338044049276}
   - component: {fileID: 9152580346008580103}
   m_Layer: 0
-  m_Name: P_HitMarker
+  m_Name: P_HitMarkerEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

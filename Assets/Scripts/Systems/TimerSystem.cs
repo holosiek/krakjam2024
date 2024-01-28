@@ -51,7 +51,7 @@ public class TimerSystem : GameSystem
 		if (_shouldTimerWork)
 		{
 			_time += Time.deltaTime;
-			_label.SetText(GetReadableTime(_time));
+			_label.SetText("<mspace=0.6em>" + GetReadableTime(_time) + "</mspace>");
 		}
 	}
 }

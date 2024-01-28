@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8424644799056598407}
   - component: {fileID: 971771609269733554}
   m_Layer: 0
-  m_Name: P_ProjectileBullet
+  m_Name: P_ProjectileBulletPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,5 +134,5 @@ MonoBehaviour:
   _damage: 20
   _speed: 40
   _lifetime: 1
-  _hitMarker: {fileID: 6351775699939037902, guid: 4ca6e58f1037c7b4b85a9a1e7caa1a72, type: 3}
+  _hitMarker: {fileID: 6351775699939037902, guid: a0ba2cafeb9c9ce4499c305ed6935424, type: 3}
   _bulletsPersistsModifierTag: {fileID: 11400000, guid: 530cf8e88870af54588f022753f769d1, type: 2}
