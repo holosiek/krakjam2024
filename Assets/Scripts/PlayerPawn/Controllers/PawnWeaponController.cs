@@ -44,32 +44,27 @@ public class PawnWeaponController : MonoBehaviour
 
     private void Start()
     {
-        ActiveWeapon = _defaultWeapon;
+        OnModifierListUpdate(null);
         _modifierSystem = GameInstance.Instance.Get<ModifierSystem>();
         _modifierSystem.OnModifierListUpdate += OnModifierListUpdate;
     }
 
     private void OnModifierListUpdate(Modifier modifier)
     {
-        if (modifier == null)
-        {
-            return;
-        }
-        
-        if (modifier.ModifierTag == _pawsWeaponTag || GameInstance.Instance.Get<ModifierSystem>().HasModifierTag(_pawsWeaponTag))
+        if (GameInstance.Instance.Get<ModifierSystem>().HasModifierTag(_pawsWeaponTag))
         {
             ActiveWeapon = _pawsWeapon;
         }
-        else if (modifier.ModifierTag == _meowCatGunTag || GameInstance.Instance.Get<ModifierSystem>().HasModifierTag(_meowCatGunTag))
-        {
-            ActiveWeapon = _meowCatGun;
-        }
-        else if (modifier.ModifierTag == _catLaserTag || GameInstance.Instance.Get<ModifierSystem>().HasModifierTag(_catLaserTag))
+        else if (GameInstance.Instance.Get<ModifierSystem>().HasModifierTag(_catLaserTag))
         {
             ActiveWeapon = _catLaserWeapon;
         }
+        else
+        {
+            ActiveWeapon = _meowCatGun;
+        }
     }
-
+    
     public void OnFireInput(InputAction.CallbackContext context)
     {
         var triggerPhase = context.phase switch
