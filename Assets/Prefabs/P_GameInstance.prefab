@@ -50,6 +50,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Systems: []
+  _sceneNames:
+  - Level1
+  - Level2
 --- !u!1001 &4390222465192866878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -100,23 +103,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3378966860882381336, guid: 2eff94cb9047895489cb1c20c87da844, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -452.713
+      value: -490.74997
       objectReference: {fileID: 0}
     - target: {fileID: 3378966860882381336, guid: 2eff94cb9047895489cb1c20c87da844, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -255.62427
+      value: -278.47
       objectReference: {fileID: 0}
     - target: {fileID: 3378966860882381336, guid: 2eff94cb9047895489cb1c20c87da844, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.269353
+      value: -2.0650008
       objectReference: {fileID: 0}
     - target: {fileID: 3378966860882381336, guid: 2eff94cb9047895489cb1c20c87da844, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3378966860882381336, guid: 2eff94cb9047895489cb1c20c87da844, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.70710677
+      value: -0.0000004768371
       objectReference: {fileID: 0}
     - target: {fileID: 6853287502657778006, guid: 2eff94cb9047895489cb1c20c87da844, type: 3}
       propertyPath: m_Name

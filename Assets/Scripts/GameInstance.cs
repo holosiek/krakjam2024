@@ -7,6 +7,11 @@ public class GameInstance : MonoBehaviour
     [SerializeField]
     public List<GameSystem> Systems;
 
+    [SerializeField]
+    private List<string> _sceneNames;
+
+    private static int _currentSceneIndex;
+
     private static GameInstance _gameInstance;
     private static UiSystem _uiSystem;
     private static ModifierSystem _modifierSystem;
@@ -104,9 +109,22 @@ public class GameInstance : MonoBehaviour
     public void RestartGame()
     {
         ChangeScene(SceneManager.GetActiveScene().name);
-        Get<TimerSystem>().ResetTimer();
         Get<ModifierSystem>().RestartModifiers();
         UiSystem.ModifierList.ResetModifiers();
+        CleanupLevel();
+    }
+
+    public void Continue()
+    {
+        var newIndex = _currentSceneIndex + 1;
+        _currentSceneIndex = newIndex < _sceneNames.Count ? newIndex : 0;
+        ChangeScene(_sceneNames[_currentSceneIndex]);
+        CleanupLevel();
+    }
+
+    private void CleanupLevel()
+    {
+        Get<TimerSystem>().ResetTimer();
         UiSystem.HealthBar.SetByPercent(1);
     }
 

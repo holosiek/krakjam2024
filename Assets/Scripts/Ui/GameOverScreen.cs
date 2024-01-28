@@ -52,7 +52,7 @@ public class GameOverScreen : MonoBehaviour, PlayerInputActions.IAdditionalActio
         if (_allowToContinue && context.phase == InputActionPhase.Performed)
         {
             Cleanup();
-            GameInstance.Instance.ChangeScene("Level1");
+            GameInstance.Instance.Continue();
         }
     }
 
