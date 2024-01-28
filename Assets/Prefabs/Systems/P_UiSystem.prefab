@@ -280,6 +280,7 @@ MonoBehaviour:
   ModifierList: {fileID: 6844177302415745838}
   GameOverScreen: {fileID: 3866172870169599012}
   GameWinScreen: {fileID: 4808559479322473100}
+  GameCompletedScreen: {fileID: 0}
   WeaponHolder: {fileID: 7488651650527785977}
 --- !u!1001 &230099999608938773
 PrefabInstance:
@@ -606,9 +607,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 22707703856159215}
     m_Modifications:
+    - target: {fileID: 894398723017744606, guid: 9bc434e4f5f06a147baff192a415a044, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 98.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594051285685404128, guid: 9bc434e4f5f06a147baff192a415a044, type: 3}
+      propertyPath: m_text
+      value: you are pawesome
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188179397435039263, guid: 9bc434e4f5f06a147baff192a415a044, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -103.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400370621369900998, guid: 9bc434e4f5f06a147baff192a415a044, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -103.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3652469452167156618, guid: 9bc434e4f5f06a147baff192a415a044, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 98.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5300421217031469669, guid: 9bc434e4f5f06a147baff192a415a044, type: 3}
       propertyPath: m_Name
       value: P_GameWonScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415035032654346351, guid: 9bc434e4f5f06a147baff192a415a044, type: 3}
+      propertyPath: m_Alpha
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7323879964969199047, guid: 9bc434e4f5f06a147baff192a415a044, type: 3}
       propertyPath: m_Pivot.x
@@ -1182,9 +1207,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 22707703856159215}
     m_Modifications:
+    - target: {fileID: 102945043110055576, guid: f306cd1b9f5cfab4f9fb2ff49c7639f8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -691.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 102945043110055576, guid: f306cd1b9f5cfab4f9fb2ff49c7639f8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -345.74997
+      objectReference: {fileID: 0}
+    - target: {fileID: 894398723017744606, guid: f306cd1b9f5cfab4f9fb2ff49c7639f8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 105.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594051285685404128, guid: f306cd1b9f5cfab4f9fb2ff49c7639f8, type: 3}
+      propertyPath: m_text
+      value: meow again
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188179397435039263, guid: f306cd1b9f5cfab4f9fb2ff49c7639f8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -110.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400370621369900998, guid: f306cd1b9f5cfab4f9fb2ff49c7639f8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -110.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3652469452167156618, guid: f306cd1b9f5cfab4f9fb2ff49c7639f8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 105.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5300421217031469669, guid: f306cd1b9f5cfab4f9fb2ff49c7639f8, type: 3}
       propertyPath: m_Name
       value: P_GameOverScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415035032654346351, guid: f306cd1b9f5cfab4f9fb2ff49c7639f8, type: 3}
+      propertyPath: m_Alpha
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7323879964969199047, guid: f306cd1b9f5cfab4f9fb2ff49c7639f8, type: 3}
       propertyPath: m_Pivot.x
