@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1, y: 2}
+  m_SizeDelta: {x: 0.7, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1259883290635453828
 CanvasRenderer:
@@ -142,8 +142,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 584
   _damage: 100
-  _speed: 70
+  _speed: 40
   _lifetime: 4
+  _hitMarker: {fileID: 0}
+  _bulletsPersistsModifierTag: {fileID: 0}
 --- !u!1 &3120841412845504497
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +255,7 @@ Transform:
   m_GameObject: {fileID: 7396421703636480223}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: -5}
+  m_LocalPosition: {x: 0, y: -1.07, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
