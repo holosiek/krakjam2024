@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PawsModifier
   m_EditorClassIdentifier: 
   ModifierTag: {fileID: 11400000, guid: 5fead236782b84041b51eab0cd54c0cb, type: 2}
-  Image: {fileID: 21300000, guid: 344424e74915ab449a78cc944dbe54a2, type: 3}
-  Text: "Lewy i Prawy \u0141apkowy"
+  Image: {fileID: 21300000, guid: cf37331b3aaa70f4a9c145644741933b, type: 3}
+  Text: left right paw paw

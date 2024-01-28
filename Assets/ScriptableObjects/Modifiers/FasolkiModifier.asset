@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: FasolkiModifier
   m_EditorClassIdentifier: 
   ModifierTag: {fileID: 11400000, guid: b5a362ad6a616a24e9e59009f489c15e, type: 2}
-  Image: {fileID: 21300000, guid: d6641bdf3e1786641bc6f8b004b3f2f0, type: 3}
+  Image: {fileID: 21300000, guid: dc3d1471f4499f34ba09dae26be926cd, type: 3}
   Text: Deep in potato sauce

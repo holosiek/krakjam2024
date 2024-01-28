@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: QuakeModeModifier
   m_EditorClassIdentifier: 
   ModifierTag: {fileID: 11400000, guid: 25ff454fb2937cf489ed97a1035e5d77, type: 2}
-  Image: {fileID: 21300000, guid: 344424e74915ab449a78cc944dbe54a2, type: 3}
+  Image: {fileID: 21300000, guid: 70c55153d75d89f47bd2cdd36e8c5c27, type: 3}
   Text: Eyes wide open

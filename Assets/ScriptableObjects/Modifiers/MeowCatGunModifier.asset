@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MeowCatGunModifier
   m_EditorClassIdentifier: 
   ModifierTag: {fileID: 11400000, guid: 0e0fe9087610883498700c14032d7524, type: 2}
-  Image: {fileID: 21300000, guid: 344424e74915ab449a78cc944dbe54a2, type: 3}
+  Image: {fileID: 21300000, guid: 177014ce4f6da5744a06263b557307c3, type: 3}
   Text: Meowing Kitty

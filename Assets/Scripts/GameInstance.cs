@@ -102,7 +102,6 @@ public class GameInstance : MonoBehaviour
 
     public void ShowGameOverScreen()
     {
-        Get<DataSystem>().AddNewBestTime(Get<TimerSystem>().GetTime());
         UiSystem.GameOverScreen.ShowGameOverScreen();
     }
 
@@ -122,6 +121,7 @@ public class GameInstance : MonoBehaviour
         ChangeScene(_sceneNames[_currentSceneIndex]);
         CleanupLevel();
         Get<TimerSystem>().ResumeTimer();
+        Get<ModifierSystem>().AddNewRandomModifier();
     }
 
     private void CleanupLevel()

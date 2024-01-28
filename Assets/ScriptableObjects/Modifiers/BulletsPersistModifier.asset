@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BulletsPersistModifier
   m_EditorClassIdentifier: 
   ModifierTag: {fileID: 11400000, guid: 530cf8e88870af54588f022753f769d1, type: 2}
-  Image: {fileID: 21300000, guid: 344424e74915ab449a78cc944dbe54a2, type: 3}
-  Text: Podjelam decyzje, wyremontujemy wasz dom
+  Image: {fileID: 21300000, guid: ccd9f09d4e28183439c294b06e11db2b, type: 3}
+  Text: 'extreme makeover: meow edition'

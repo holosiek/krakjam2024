@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: FastMovementSpeedModifier
   m_EditorClassIdentifier: 
   ModifierTag: {fileID: 11400000, guid: 2a21facb9d163e647a0fb1ba7a7ca07a, type: 2}
-  Image: {fileID: 21300000, guid: 344424e74915ab449a78cc944dbe54a2, type: 3}
+  Image: {fileID: 21300000, guid: 405bbdcf0a98bda4b989fb70d300c106, type: 3}
   Text: Hermes

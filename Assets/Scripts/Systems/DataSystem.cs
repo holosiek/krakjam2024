@@ -2,7 +2,7 @@
 
 public class DataSystem : GameSystem
 {
-	public List<float> BestTimes = new List<float>();
+	public List<float> BestTimes = new List<float>(){0,0,0,0,0,0,0,0,0,0};
 
 	public void AddNewBestTime(float time)
 	{

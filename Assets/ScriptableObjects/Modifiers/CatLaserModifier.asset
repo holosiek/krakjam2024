@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CatLaserModifier
   m_EditorClassIdentifier: 
   ModifierTag: {fileID: 11400000, guid: 059c1fd1c34c5ef4eaaeb258394f9dfc, type: 2}
-  Image: {fileID: 21300000, guid: 344424e74915ab449a78cc944dbe54a2, type: 3}
+  Image: {fileID: 21300000, guid: 96872e6d0e84e1f4088e096093679fb6, type: 3}
   Text: What Comes From the Laser?

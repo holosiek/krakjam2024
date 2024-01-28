@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SlowBulletsModifier
   m_EditorClassIdentifier: 
   ModifierTag: {fileID: 11400000, guid: ea1adaa4126640f4b8d1d6a49484a11e, type: 2}
-  Image: {fileID: 21300000, guid: 344424e74915ab449a78cc944dbe54a2, type: 3}
+  Image: {fileID: 21300000, guid: 2cd1110dd0d35a542a91ae0a59282142, type: 3}
   Text: Lazy Bullets
