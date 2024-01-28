@@ -12,6 +12,12 @@ public class ProjectileBullet : AbstractBullet
     [SerializeField]
     private float _lifetime;
 
+    [SerializeField]
+    private GameObject _hitMarker;
+        
+    [SerializeField]
+    private ModifierTag _bulletsPersistsModifierTag;
+
     public override void Fire(Vector3 direction)
     {
         StartCoroutine(FireRoutine(direction));
@@ -40,7 +46,21 @@ public class ProjectileBullet : AbstractBullet
         if (Physics.Raycast(transform.position, transform.forward, out var raycastHit, 0.4f, _hitLayerMask))
         {
             raycastHit.collider.GetComponent<HitBox>()?.DealDamage(_damage);
-            Destroy(gameObject);
+            if (_hitMarker != null)
+            {
+                var marker = Instantiate(_hitMarker);
+                marker.transform.position = raycastHit.point;
+            }
+
+            if (GameInstance.ModifierSystem.HasModifierTag(_bulletsPersistsModifierTag))
+            {
+                GameInstance.Instance.Get<BulletSystem>().AddGameObjectToQueue(gameObject);
+                gameObject.GetComponent<Collider>().enabled = false;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

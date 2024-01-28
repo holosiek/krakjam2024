@@ -128,6 +128,8 @@ MonoBehaviour:
   _damage: 20
   _speed: 40
   _lifetime: 1
+  _hitMarker: {fileID: 6351775699939037902, guid: a0ba2cafeb9c9ce4499c305ed6935424, type: 3}
+  _bulletsPersistsModifierTag: {fileID: 11400000, guid: 530cf8e88870af54588f022753f769d1, type: 2}
 --- !u!114 &5352602072203962996
 MonoBehaviour:
   m_ObjectHideFlags: 0

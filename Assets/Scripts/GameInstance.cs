@@ -9,10 +9,12 @@ public class GameInstance : MonoBehaviour
 
     private static GameInstance _gameInstance;
     private static UiSystem _uiSystem;
+    private static ModifierSystem _modifierSystem;
 
     public static GameInstance Instance => _gameInstance;
 
     public static UiSystem UiSystem => _uiSystem;
+    public static ModifierSystem ModifierSystem => _modifierSystem;
 
     private void Initialize()
     {
@@ -46,6 +48,11 @@ public class GameInstance : MonoBehaviour
             if (sys is UiSystem uiSystem)
             {
                 _uiSystem = uiSystem;
+            }
+            
+            if (sys is ModifierSystem modifierSystem)
+            {
+                _modifierSystem = modifierSystem;
             }
 
             bool exists = false;

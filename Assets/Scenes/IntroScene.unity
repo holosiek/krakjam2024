@@ -493,7 +493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lowPosition: {fileID: 1357380308}
   _highPostion: {fileID: 22517615}
-  _lerpTime: 5
+  _lerpTime: 10
 --- !u!1 &1164151622
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,7 +825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _decoratedActivable: {fileID: 1924297267}
-  _activationDelay: 5
+  _activationDelay: 10
   _deactivationDelay: 0
 --- !u!114 &1924297269
 MonoBehaviour:
