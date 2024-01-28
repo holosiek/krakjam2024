@@ -44,7 +44,7 @@ public class PawnWeaponController : MonoBehaviour
 
     private void Start()
     {
-        ActiveWeapon = _meowCatGun;
+        ActiveWeapon = _defaultWeapon;
         _modifierSystem = GameInstance.Instance.Get<ModifierSystem>();
         _modifierSystem.OnModifierListUpdate += OnModifierListUpdate;
     }
@@ -56,21 +56,17 @@ public class PawnWeaponController : MonoBehaviour
             return;
         }
         
-        if (modifier.ModifierTag == _pawsWeaponTag)
+        if (modifier.ModifierTag == _pawsWeaponTag || GameInstance.Instance.Get<ModifierSystem>().HasModifierTag(_pawsWeaponTag))
         {
             ActiveWeapon = _pawsWeapon;
         }
-        else if (modifier.ModifierTag == _meowCatGunTag)
+        else if (modifier.ModifierTag == _meowCatGunTag || GameInstance.Instance.Get<ModifierSystem>().HasModifierTag(_meowCatGunTag))
         {
             ActiveWeapon = _meowCatGun;
         }
-        else if (modifier.ModifierTag == _catLaserTag)
+        else if (modifier.ModifierTag == _catLaserTag || GameInstance.Instance.Get<ModifierSystem>().HasModifierTag(_catLaserTag))
         {
             ActiveWeapon = _catLaserWeapon;
-        }
-        else
-        {
-            ActiveWeapon = _defaultWeapon;
         }
     }
 
