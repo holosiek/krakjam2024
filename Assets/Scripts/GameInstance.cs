@@ -111,7 +111,7 @@ public class GameInstance : MonoBehaviour
         Get<ModifierSystem>().RestartModifiers();
         UiSystem.ModifierList.ResetModifiers();
         CleanupLevel();
-        ChangeScene(SceneManager.GetActiveScene().name);
+        ChangeScene("Tutorial");
     }
 
     public void Continue()
