@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fastMovementTag: {fileID: 11400000, guid: 2a21facb9d163e647a0fb1ba7a7ca07a, type: 2}
-  _fastMovementMultiplier: 10
+  _fastMovementMultiplier: 3
   _slowBulletsTag: {fileID: 11400000, guid: ea1adaa4126640f4b8d1d6a49484a11e, type: 2}
   _slowBulletsMultiplier: 0.1
