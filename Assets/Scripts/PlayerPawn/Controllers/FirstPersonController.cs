@@ -14,6 +14,9 @@ public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplay
     private CharacterController _characterController;
 
     [SerializeField]
+    private AbstractActivable _onJumpActivable;
+
+    [SerializeField]
     private float _maxLookAngle = 60f;
 
     [SerializeField]
@@ -81,6 +84,7 @@ public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplay
         if (context.phase == InputActionPhase.Performed && _characterController.isGrounded)
         {
             _currentJumpVelocity = new Vector3(0, _jumpForce, 0);
+            _onJumpActivable?.Activate();
         }
     }
 
