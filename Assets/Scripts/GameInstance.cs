@@ -10,7 +10,7 @@ public class GameInstance : MonoBehaviour
     [SerializeField]
     private List<string> _sceneNames;
 
-    private static int _currentSceneIndex;
+    private static int _currentSceneIndex = -1;
 
     private static GameInstance _gameInstance;
     private static UiSystem _uiSystem;
@@ -112,6 +112,7 @@ public class GameInstance : MonoBehaviour
         Get<TimerSystem>().ResetTimer();
         CleanupLevel();
         ChangeScene("Tutorial");
+        _currentSceneIndex = -1;
     }
 
     public void Continue()

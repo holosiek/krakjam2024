@@ -11,6 +11,9 @@ public class ModifierNotification : MonoBehaviour
 	
 	[SerializeField]
 	private float _displayTime;
+
+	[SerializeField]
+	private AbstractActivable _onModifierDisplayActivable;
 	
 	[SerializeField]
 	private Image _modifierImage;
@@ -62,6 +65,7 @@ public class ModifierNotification : MonoBehaviour
 		}
 		_notificationContainer.alpha = 1;
 
+		_onModifierDisplayActivable?.Activate();
 		yield return new WaitForSeconds(_displayTime);
 		
 		while (outTimer < _displayInOutAnimationTime)

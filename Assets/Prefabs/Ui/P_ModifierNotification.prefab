@@ -34,6 +34,7 @@ RectTransform:
   m_Children:
   - {fileID: 3730421664605101193}
   - {fileID: 2574006824251028852}
+  - {fileID: 2894290329548575022}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
@@ -93,6 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _displayInOutAnimationTime: 0.25
   _displayTime: 2
+  _onModifierDisplayActivable: {fileID: 8701791777394956939}
   _modifierImage: {fileID: 1946260717893784561}
   _modifierText: {fileID: 210193065496314565}
   _notificationContainer: {fileID: 3981289402576191666}
@@ -317,3 +319,84 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1001 &536469099819393452
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4064674025169034610}
+    m_Modifications:
+    - target: {fileID: 3412460186158379138, guid: 2f7f3ce22f736aa45b95a5e03212ad3f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412460186158379138, guid: 2f7f3ce22f736aa45b95a5e03212ad3f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412460186158379138, guid: 2f7f3ce22f736aa45b95a5e03212ad3f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412460186158379138, guid: 2f7f3ce22f736aa45b95a5e03212ad3f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412460186158379138, guid: 2f7f3ce22f736aa45b95a5e03212ad3f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412460186158379138, guid: 2f7f3ce22f736aa45b95a5e03212ad3f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412460186158379138, guid: 2f7f3ce22f736aa45b95a5e03212ad3f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412460186158379138, guid: 2f7f3ce22f736aa45b95a5e03212ad3f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412460186158379138, guid: 2f7f3ce22f736aa45b95a5e03212ad3f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3412460186158379138, guid: 2f7f3ce22f736aa45b95a5e03212ad3f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5304464778783641734, guid: 2f7f3ce22f736aa45b95a5e03212ad3f, type: 3}
+      propertyPath: m_Name
+      value: P_ActivableAudioEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182906209885807482, guid: 2f7f3ce22f736aa45b95a5e03212ad3f, type: 3}
+      propertyPath: m_Volume
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182906209885807482, guid: 2f7f3ce22f736aa45b95a5e03212ad3f, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 465acbef811e8b44fbaec313b2e48cd7, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2f7f3ce22f736aa45b95a5e03212ad3f, type: 3}
+--- !u!4 &2894290329548575022 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3412460186158379138, guid: 2f7f3ce22f736aa45b95a5e03212ad3f, type: 3}
+  m_PrefabInstance: {fileID: 536469099819393452}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8701791777394956939 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9201718571456002855, guid: 2f7f3ce22f736aa45b95a5e03212ad3f, type: 3}
+  m_PrefabInstance: {fileID: 536469099819393452}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50547784fd0d19b4cb515a7e587c06ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
