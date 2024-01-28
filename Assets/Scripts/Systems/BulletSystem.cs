@@ -18,7 +18,6 @@ public class BulletSystem : GameSystem
 			
 			if (toDelete != null)
 			{
-				Debug.Log("XD");
 				Destroy(toDelete);
 			}
 		}

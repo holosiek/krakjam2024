@@ -35,7 +35,10 @@ public class PawnWeaponController : MonoBehaviour
         {
             if (_activeWeapon != value)
             {
-                _activeWeapon?.gameObject.SetActive(false);
+                if (_activeWeapon != null)
+                {
+                    _activeWeapon.gameObject.SetActive(false);
+                }
                 _activeWeapon = value;
                 _activeWeapon.gameObject.SetActive(true);
             }
