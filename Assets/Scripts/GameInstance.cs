@@ -110,6 +110,7 @@ public class GameInstance : MonoBehaviour
     {
         Get<ModifierSystem>().RestartModifiers();
         UiSystem.ModifierList.ResetModifiers();
+        Get<TimerSystem>().ResetTimer();
         CleanupLevel();
         ChangeScene(SceneManager.GetActiveScene().name);
     }
@@ -120,11 +121,11 @@ public class GameInstance : MonoBehaviour
         _currentSceneIndex = newIndex < _sceneNames.Count ? newIndex : 0;
         ChangeScene(_sceneNames[_currentSceneIndex]);
         CleanupLevel();
+        Get<TimerSystem>().ResumeTimer();
     }
 
     private void CleanupLevel()
     {
-        Get<TimerSystem>().ResetTimer();
         UiSystem.HealthBar.SetByPercent(1);
     }
 

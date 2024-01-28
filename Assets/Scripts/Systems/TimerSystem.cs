@@ -22,6 +22,10 @@ public class TimerSystem : GameSystem
 
 	public string GetReadableTime(float time)
 	{
+		if (time == 0)
+		{
+			return "--:--.--";
+		}
 		return DoublePad(time/60) + ":" + DoublePad(time%60) + "." + DoublePad((time%1)*100);
 	}
 	
