@@ -113,6 +113,7 @@ public class GameInstance : MonoBehaviour
         Get<TimerSystem>().ResetTimer();
         CleanupLevel();
         ChangeScene("Tutorial");
+        _currentSceneIndex = -1;
     }
 
     public void Continue()
