@@ -14,9 +14,21 @@ public class FullScreenEffectSystem : GameSystem
 	private ModifierSystem _modifierSystem;
 	private bool _isGreenscreened;
 	private bool _isQuakeMode;
+	private float _saturation = 0;
 
 	private static readonly int _testColor = Shader.PropertyToID("_TestColor");
 	private static readonly int _quakeMode = Shader.PropertyToID("_QuakeMode");
+	private static readonly int _saturationAndContrast = Shader.PropertyToID("_SaturationAndContrast");
+
+	public float Saturation
+	{
+		get => _saturation;
+		set
+		{
+			_saturation = Mathf.Clamp(value, 0, 1);
+			_fullScreenMaterial.SetFloat(_saturationAndContrast, _saturation);
+		}
+	}
 
 	public void Start()
 	{
@@ -59,7 +71,6 @@ public class FullScreenEffectSystem : GameSystem
 		
 		if (!_isQuakeMode && _modifierSystem.HasModifierTag(_quakeModeModifierTag))
 		{
-			Debug.Log("XD");
 			_fullScreenMaterial.SetInt(_quakeMode, 1);
 			_isQuakeMode = true;
 		}
