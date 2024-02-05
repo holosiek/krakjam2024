@@ -1,26 +1,17 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class UiSystem : GameSystem
 {
 	[SerializeField]
-	public HealthBar HealthBar;
+	private PlayerHUDSystem _playerHUDSystem;
 
 	[SerializeField]
-	public ModifierNotification ModifierNotification;
+	private ModifierNotification _modifierNotification;
 
 	[SerializeField]
-	public ModifierList ModifierList;
+	private ModifierList _modifierList;
 
-	[SerializeField]
-	public GameOverScreen GameOverScreen;
-
-	[SerializeField]
-	public GameOverScreen GameWinScreen;
-	
-	[SerializeField]
-	public GameOverScreen GameCompletedScreen;
-
-	[SerializeField]
-	public WeaponHolder WeaponHolder;
+	public PlayerHUDSystem PlayerHUDSystem => _playerHUDSystem;
+	public ModifierNotification ModifierNotification => _modifierNotification;
+	public ModifierList ModifierList => _modifierList;
 }

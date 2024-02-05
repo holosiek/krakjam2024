@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 ﻿using TMPro;
 
-public class GameOverScreen : MonoBehaviour, PlayerInputActions.IAdditionalActions
+public class GameOverScreen : MonoBehaviour
 {
     [SerializeField]
     private TMP_Text _timerLabel;
@@ -29,13 +29,12 @@ public class GameOverScreen : MonoBehaviour, PlayerInputActions.IAdditionalActio
         float time = timerSystem.GetTime();
         _timerLabel.SetText(timerSystem.GetReadableTime(time));
         _bestTimeLabel.SetText(timerSystem.GetReadableTime(GameInstance.Instance.Get<DataSystem>().GetBestTime()));
-        //_modifiersCollectedLabel.SetText(GameInstance.Instance.Get<ModifierSystem>().ModifiersList.Count.ToString());
         timerSystem.StopTimer();
         Time.timeScale = 0f;
         _gameOverScreen.alpha = 1;
 
-        _inputSystem.PlayerInputAction.Additional.Enable();
-        _inputSystem.PlayerInputAction.Additional.SetCallbacks(this);
+        //_inputSystem.PlayerInputAction.Additional.Enable();
+        //_inputSystem.PlayerInputAction.Additional.SetCallbacks(this);
     }
 
     public void OnReset(InputAction.CallbackContext context)
@@ -58,8 +57,8 @@ public class GameOverScreen : MonoBehaviour, PlayerInputActions.IAdditionalActio
 
     private void Cleanup()
     {
-        _inputSystem.PlayerInputAction.Additional.Disable();
-        _inputSystem.PlayerInputAction.Additional.RemoveCallbacks(this);
+        //_inputSystem.PlayerInputAction.Additional.Disable();
+        //_inputSystem.PlayerInputAction.Additional.RemoveCallbacks(this);
         Time.timeScale = 1f;
         _gameOverScreen.alpha = 0;
     }

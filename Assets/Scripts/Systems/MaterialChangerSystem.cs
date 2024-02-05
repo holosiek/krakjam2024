@@ -35,7 +35,10 @@ public class MaterialChangerSystem : GameSystem
 	{
 		foreach (var mat in _materials)
 		{
-			mat.SetInt(_fasolkiOn, 0);
+			if (mat != null)
+			{
+				mat.SetInt(_fasolkiOn, 0);
+			}
 		}
 		_isFasolki = false;
 	}

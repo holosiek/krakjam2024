@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
@@ -9,19 +8,8 @@ public class HealthBar : MonoBehaviour
 
 	[SerializeField]
 	private float _width;
-	
-	[SerializeField]
-	[Range(0f, 1f)]
-	private float _percent = 1f;
-	
+
 	public Image HealthImg => _healthImg;
-
-	private float max = 1;
-
-	public void OnValidate()
-	{
-		SetByPercent(_percent);
-	}
 
 	public void SetByPercent(float percent)
 	{
