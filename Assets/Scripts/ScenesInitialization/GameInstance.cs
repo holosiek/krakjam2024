@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,23 +23,34 @@ public class GameInstance : MonoBehaviour
 
 	public void Awake()
 	{
-		InitializeGameInstance();
+		GameInitialization();
 	}
 
-	private void InitializeGameInstance()
+	private void GameInitialization()
 	{
 		if (!_isGameInstanceInitialized)
 		{
-			DontDestroyOnLoad(_gameInstance);
-			_isGameInstanceInitialized = true;
-			FetchSystems();
-			_systems.ForEach(system => system.Initialize());
+			GameInstanceInitialization();
+			SystemsInitialization();
 			InitializeScene();
 		}
 		else
 		{
 			Destroy(gameObject);
 		}
+	}
+
+	private void GameInstanceInitialization()
+	{
+		_gameInstance = this;
+		DontDestroyOnLoad(this);
+		_isGameInstanceInitialized = true;
+	}
+
+	private void SystemsInitialization()
+	{
+		FetchSystems();
+		_systems.ForEach(system => system.Initialize());
 	}
 
 	private void InitializeScene()
@@ -84,10 +96,17 @@ public class GameInstance : MonoBehaviour
 		return null;
 	}
 
-	public void ChangeScene(string sceneName)
+	public async Task ChangeScene(string sceneName)
 	{
 		_sceneObjects.ForEach(sceneObject => sceneObject.OnPreSceneChange());
-		SceneManager.LoadScene(sceneName);
+
+		var handle = SceneManager.LoadSceneAsync(sceneName);
+
+		while (!handle.isDone)
+		{
+			await Task.Yield();
+		}
+
 		InitializeScene();
 	}
 }

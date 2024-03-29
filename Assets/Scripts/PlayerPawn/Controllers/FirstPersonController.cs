@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplayActions
+public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplayActions, ISceneObject
 {
 	[SerializeField]
 	private Transform _playerRoot;
@@ -51,15 +51,18 @@ public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplay
 		_weaponController = GetComponentInChildren<PawnWeaponController>();
 	}
 
-	private void Start()
+	public void OnSystemsInitialized()
 	{
 		_inputSystem = GameInstance.Instance.Get<InputSystem>();
 		_multipliersSystem = GameInstance.Instance.Get<MultipliersSystem>();
-
 		_inputActions = _inputSystem.PlayerInputAction;
+		_inputActions.Gameplay.Disable();
+	}
+
+	public void OnAfterSceneReady()
+	{
 		_inputActions.Gameplay.SetCallbacks(this);
 		_inputActions.Gameplay.Enable();
-
 		Cursor.lockState = CursorLockMode.Locked;
 	}
 
@@ -126,8 +129,22 @@ public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplay
 		_playerRoot.Rotate(Vector3.up * _currentLookInput.x * _sensitivity * _deltaTime);
 	}
 
+	public void OnPreSceneChange()
+	{
+		Cleanup();
+	}
+
+	private void Cleanup()
+	{
+		_inputActions.Gameplay.Disable();
+		_inputActions.Gameplay.RemoveCallbacks(this);
+		_inputActions = null;
+		_inputSystem = null;
+		_multipliersSystem = null;
+	}
+
 	private void OnDestroy()
 	{
-		_inputActions.Gameplay.RemoveCallbacks(this);
+		Cleanup();
 	}
 }

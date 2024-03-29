@@ -1,19 +1,29 @@
 using UnityEngine;
 
-public class PlayerPawn : MonoBehaviour
+public class PlayerPawn : MonoBehaviour, ISceneObject
 {
 	private PlayerHUDSystem PlayerHUD => GameInstance.UiSystem.PlayerHUDSystem;
 
-	public void Start()
+	public void OnBeforeSceneReady()
 	{
 		PlayerHUD.SetActive(true);
 	}
 
-	private void OnDestroy()
+	public void OnBeforeSceneChange()
+	{
+		Cleanup();
+	}
+
+	private void Cleanup()
 	{
 		if (PlayerHUD != null)
 		{
 			PlayerHUD.SetActive(false);
 		}
+	}
+
+	private void OnDestroy()
+	{
+		Cleanup();
 	}
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class AiAgent : MonoBehaviour
+public class AiAgent : MonoBehaviour, ISceneObject
 {
     [SerializeField]
     private PawnDetector _pawnVisibilityDetector;
@@ -46,10 +46,10 @@ public class AiAgent : MonoBehaviour
         _animator = GetComponentInChildren<Animator>();
     }
 
-    private void Start()
+    public void OnSystemsInitialized()
     {
-        MultipliersSystem.OnMovementSpeedMultiplierChange += OnMovementSpeedChange;
-    }
+		MultipliersSystem.OnMovementSpeedMultiplierChange += OnMovementSpeedChange;
+	}
 
     private void OnMovementSpeedChange(float multiplierValue)
     {
@@ -143,8 +143,8 @@ public class AiAgent : MonoBehaviour
 
     private void CalculateNewDestination()
     {
-        float randomZ = UnityEngine.Random.Range(-_patrolRange, _patrolRange);
-        float randomX = UnityEngine.Random.Range(-_patrolRange, _patrolRange);
+		float randomZ = Random.Range(-_patrolRange, _patrolRange);
+        float randomX = Random.Range(-_patrolRange, _patrolRange);
 
         _destination = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
 
@@ -154,11 +154,21 @@ public class AiAgent : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    public void OnPreSceneChange()
     {
-        if (_multipliersSystem != null)
-        {
-            _multipliersSystem.OnMovementSpeedMultiplierChange -= OnMovementSpeedChange;
-        }
+        Cleanup();
     }
+
+	private void Cleanup()
+	{
+		if (_multipliersSystem != null)
+		{
+			_multipliersSystem.OnMovementSpeedMultiplierChange -= OnMovementSpeedChange;
+		}
+	}
+
+	private void OnDestroy()
+	{
+		Cleanup();
+	}
 }

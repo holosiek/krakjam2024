@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PawnWeaponController : MonoBehaviour
+public class PawnWeaponController : MonoBehaviour, ISceneObject
 {
 	[SerializeField]
 	private ModifierTag _meowCatGunTag;
@@ -44,7 +44,7 @@ public class PawnWeaponController : MonoBehaviour
 		}
 	}
 
-	private void Start()
+	public void OnSystemsInitialized()
 	{
 		OnModifierListUpdate(null);
 		_modifierSystem = GameInstance.Instance.Get<ModifierSystem>();
