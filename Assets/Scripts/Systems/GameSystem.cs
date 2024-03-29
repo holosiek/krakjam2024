@@ -2,5 +2,5 @@
 
 public class GameSystem : MonoBehaviour, IGameSystem
 {
-	
+
 }

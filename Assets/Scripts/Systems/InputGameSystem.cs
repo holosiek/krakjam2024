@@ -17,7 +17,7 @@ public class InputSystem : GameSystem
     private void Awake()
     {
         _inputActionAsset = new PlayerInputActions();
-        //_playerInput.actions = _inputActionAsset.asset;
-        //_inputModule.actionsAsset = _inputActionAsset.asset;
+        _playerInput.actions = _inputActionAsset.asset;
+        _inputModule.actionsAsset = _inputActionAsset.asset;
     }
 }

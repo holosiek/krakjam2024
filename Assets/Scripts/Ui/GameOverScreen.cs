@@ -42,7 +42,7 @@ public class GameOverScreen : MonoBehaviour
         if (context.phase == InputActionPhase.Performed)
         {
             Cleanup();
-            GameInstance.Instance.RestartGame();
+            //GameInstance.Instance.RestartGame();
         }
     }
 
@@ -51,7 +51,7 @@ public class GameOverScreen : MonoBehaviour
         if (_allowToContinue && context.phase == InputActionPhase.Performed)
         {
             Cleanup();
-            GameInstance.Instance.Continue();
+            //GameInstance.Instance.Continue();
         }
     }
 

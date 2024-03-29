@@ -10,4 +10,9 @@ public class PlayerHUDSystem : GameSystem
 
 	public HealthBar HealthBar => _healthBar;
 	public WeaponHolder WeaponHolder => _weaponHolder;
+
+	public void SetActive(bool active)
+	{
+		gameObject.SetActive(active);
+	}
 }
