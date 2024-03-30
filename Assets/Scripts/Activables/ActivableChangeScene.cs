@@ -8,14 +8,14 @@ public class ActivableChangeScene : AbstractActivable
     [SerializeField]
     private bool _shouldResetTimer;
 
-    public override void Activate()
+    public async override void Activate()
     {
         if (_shouldResetTimer)
         {
             GameInstance.Instance.Get<TimerSystem>().ResetTimer();
         }
         
-        GameInstance.Instance.ChangeScene(_sceneName);
+        await GameInstance.Instance.ChangeScene(_sceneName);
     }
 
     public override void Deactivate() { }

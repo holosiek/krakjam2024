@@ -29,7 +29,7 @@ public class OnHealthChangedActivator : MonoBehaviour, ISceneObject
 		}
 	}
 
-	public void OnPreSceneChange()
+	public void OnPreSceneTearDown()
 	{
 		Cleanup();
 	}

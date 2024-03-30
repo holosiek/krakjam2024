@@ -63,6 +63,7 @@ public class GameInstance : MonoBehaviour
 		_sceneObjects.ForEach(sceneObject => sceneObject.OnBeforeSceneReady());
 		_systems.ForEach(system => system.OnSceneReady());
 		_sceneObjects.ForEach(sceneObject => sceneObject.OnAfterSceneReady());
+		_systems.ForEach(system => system.OnSceneStarting());
 	}
 
 	private void FetchSystems()
@@ -98,7 +99,8 @@ public class GameInstance : MonoBehaviour
 
 	public async Task ChangeScene(string sceneName)
 	{
-		_sceneObjects.ForEach(sceneObject => sceneObject.OnPreSceneChange());
+		_sceneObjects.ForEach(sceneObject => sceneObject.OnPreSceneTearDown());
+		_systems.ForEach(system => system.OnPreSceneChange());
 
 		var handle = SceneManager.LoadSceneAsync(sceneName);
 

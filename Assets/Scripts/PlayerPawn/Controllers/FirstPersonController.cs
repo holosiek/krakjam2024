@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplayActions, ISceneObject
+public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplayActions, ISceneObject, IUpdatable
 {
 	[SerializeField]
 	private Transform _playerRoot;
@@ -32,14 +32,16 @@ public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplay
 
 	private PlayerInputActions _inputActions;
 	private InputSystem _inputSystem;
-
 	private PawnWeaponController _weaponController;
 	private MultipliersSystem _multipliersSystem;
+	private UpdateSystem _updateSystem;
 
 	private Vector3 _currentJumpVelocity;
 	private Vector3 _currentLookInput = Vector3.zero;
 	private Vector3 _currentMoveInput = Vector3.zero;
 	private float _deltaTime;
+
+	public bool CanBeUpdated => isActiveAndEnabled;
 
 	private void Awake()
 	{
@@ -55,8 +57,12 @@ public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplay
 	{
 		_inputSystem = GameInstance.Instance.Get<InputSystem>();
 		_multipliersSystem = GameInstance.Instance.Get<MultipliersSystem>();
+		_updateSystem = GameInstance.Instance.Get<UpdateSystem>();
+
 		_inputActions = _inputSystem.PlayerInputAction;
 		_inputActions.Gameplay.Disable();
+
+		_updateSystem.Register(this);
 	}
 
 	public void OnAfterSceneReady()
@@ -90,7 +96,7 @@ public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplay
 		}
 	}
 
-	private void Update()
+	public void DoUpdate()
 	{
 		_deltaTime = Time.deltaTime;
 		MoveCharacter();
@@ -129,15 +135,24 @@ public class FirstPersonController : MonoBehaviour, PlayerInputActions.IGameplay
 		_playerRoot.Rotate(Vector3.up * _currentLookInput.x * _sensitivity * _deltaTime);
 	}
 
-	public void OnPreSceneChange()
+	public void OnPreSceneTearDown()
 	{
 		Cleanup();
 	}
 
 	private void Cleanup()
 	{
-		_inputActions.Gameplay.Disable();
-		_inputActions.Gameplay.RemoveCallbacks(this);
+		if (_inputActions != null)
+		{
+			_inputActions.Gameplay.Disable();
+			_inputActions.Gameplay.RemoveCallbacks(this);
+		}
+
+		if (_updateSystem != null)
+		{
+			_updateSystem.Deregister(this);
+		}
+
 		_inputActions = null;
 		_inputSystem = null;
 		_multipliersSystem = null;

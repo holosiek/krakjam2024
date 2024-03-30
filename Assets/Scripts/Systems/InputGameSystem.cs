@@ -1,23 +1,26 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 
 public class InputSystem : GameSystem
 {
-    [SerializeField]
-    private PlayerInput _playerInput;
+	[SerializeField]
+	private PlayerInput _playerInput;
 
-    [SerializeField]
-    private InputSystemUIInputModule _inputModule;
+	private InputSystemUIInputModule _inputModule;
 
-    private PlayerInputActions _inputActionAsset;
+	private PlayerInputActions _inputActionAsset;
 
-    public PlayerInputActions PlayerInputAction => _inputActionAsset;
+	public PlayerInputActions PlayerInputAction => _inputActionAsset;
 
-    private void Awake()
-    {
-        _inputActionAsset = new PlayerInputActions();
-        _playerInput.actions = _inputActionAsset.asset;
-        _inputModule.actionsAsset = _inputActionAsset.asset;
-    }
+	public override void Initialize()
+	{
+		gameObject.AddComponent<EventSystem>();
+		_inputModule = gameObject.AddComponent<InputSystemUIInputModule>();
+
+		_inputActionAsset = new PlayerInputActions();
+		_playerInput.actions = _inputActionAsset.asset;
+		_inputModule.actionsAsset = _inputActionAsset.asset;
+	}
 }
