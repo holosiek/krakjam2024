@@ -751,6 +751,34 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""OtherUi"",
+            ""id"": ""450d994a-8457-4060-81dd-b5e376ded517"",
+            ""actions"": [
+                {
+                    ""name"": ""TogglePause"",
+                    ""type"": ""Button"",
+                    ""id"": ""06b2282b-1827-4e03-b58e-087c9c915286"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""ca3b4945-d159-477d-adc4-e27d79540da5"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""TogglePause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -794,6 +822,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Additional = asset.FindActionMap("Additional", throwIfNotFound: true);
         m_Additional_Reset = m_Additional.FindAction("Reset", throwIfNotFound: true);
         m_Additional_Continue = m_Additional.FindAction("Continue", throwIfNotFound: true);
+        // OtherUi
+        m_OtherUi = asset.FindActionMap("OtherUi", throwIfNotFound: true);
+        m_OtherUi_TogglePause = m_OtherUi.FindAction("TogglePause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1093,6 +1124,52 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         }
     }
     public AdditionalActions @Additional => new AdditionalActions(this);
+
+    // OtherUi
+    private readonly InputActionMap m_OtherUi;
+    private List<IOtherUiActions> m_OtherUiActionsCallbackInterfaces = new List<IOtherUiActions>();
+    private readonly InputAction m_OtherUi_TogglePause;
+    public struct OtherUiActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public OtherUiActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @TogglePause => m_Wrapper.m_OtherUi_TogglePause;
+        public InputActionMap Get() { return m_Wrapper.m_OtherUi; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(OtherUiActions set) { return set.Get(); }
+        public void AddCallbacks(IOtherUiActions instance)
+        {
+            if (instance == null || m_Wrapper.m_OtherUiActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_OtherUiActionsCallbackInterfaces.Add(instance);
+            @TogglePause.started += instance.OnTogglePause;
+            @TogglePause.performed += instance.OnTogglePause;
+            @TogglePause.canceled += instance.OnTogglePause;
+        }
+
+        private void UnregisterCallbacks(IOtherUiActions instance)
+        {
+            @TogglePause.started -= instance.OnTogglePause;
+            @TogglePause.performed -= instance.OnTogglePause;
+            @TogglePause.canceled -= instance.OnTogglePause;
+        }
+
+        public void RemoveCallbacks(IOtherUiActions instance)
+        {
+            if (m_Wrapper.m_OtherUiActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IOtherUiActions instance)
+        {
+            foreach (var item in m_Wrapper.m_OtherUiActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_OtherUiActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public OtherUiActions @OtherUi => new OtherUiActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -1126,5 +1203,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     {
         void OnReset(InputAction.CallbackContext context);
         void OnContinue(InputAction.CallbackContext context);
+    }
+    public interface IOtherUiActions
+    {
+        void OnTogglePause(InputAction.CallbackContext context);
     }
 }

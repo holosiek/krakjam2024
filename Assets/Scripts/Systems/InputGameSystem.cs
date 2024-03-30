@@ -9,7 +9,6 @@ public class InputSystem : GameSystem
 	private PlayerInput _playerInput;
 
 	private InputSystemUIInputModule _inputModule;
-
 	private PlayerInputActions _inputActionAsset;
 
 	public PlayerInputActions PlayerInputAction => _inputActionAsset;
